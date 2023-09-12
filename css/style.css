@@ -1,0 +1,287 @@
+
+
+/*TODO: REFACTOR FOR BETTER ORGANIZATION
+        AND REMOVING REDUNDANCIES*/
+
+
+@font-face {
+    font-family: LucidaConsole;
+    src: url(/fonts/lucon.ttf);
+
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(/fonts/Roboto-Regular.ttf);
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 0.8rem;
+    border-bottom: 1px solid black;
+}
+
+li a {
+    text-decoration: none;
+    color: rgb(241, 241, 241);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+em {
+    font-style: normal;
+}
+
+.main-wrap {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/** NAV */
+
+.nav {
+    background-color: rgb(79, 79, 79);
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid black;
+    position: fixed;
+}
+
+.logo-wrap {
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.7rem;
+    border-bottom: 1px solid black;
+}
+
+.logo__icon {
+    width: 8vw;
+    height: 8vw;
+    display: inline;
+}
+
+.logo__tag {
+    color: rgb(255, 235, 168);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vw;
+    font-weight: 600;
+    margin: 0;
+}
+
+.article-wrap {
+    margin-left: 30%;
+    width: calc(70% - 2rem * 2);
+    padding: 2rem;
+    background-color: rgb(224, 224, 224);
+}
+
+.article {
+    border: 1px solid rgb(109, 109, 109);
+    border-radius:8px;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    padding-top: 2rem;
+    background-color: rgb(241, 241, 241);
+}
+
+.article__heading {
+    text-align: center;
+    font-size: 32px;
+    margin: 0.8rem;
+}
+
+.article h2 {
+    margin: 4.4rem 0 0rem 0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 0.3rem;
+}
+
+
+.article > p {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    margin: 0.85rem;
+}
+
+.emoji {
+    display: inline;
+    width: 20px;
+}
+
+.emoji--rocket {
+    content: url(/img/emoji-rocket.PNG);
+}
+
+.code {
+    font-family: LucidaConsole, Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+    background-color: black;
+    color: white;
+    font-style: normal;
+    width: 100%;
+    display: flex;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+.code::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+    height: 7px;
+}
+.code::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+.code::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 1px;
+    background-color: #F5F5F5;
+}
+
+
+.code::before {
+    content: 'bash shell';
+    background-color: rgb(55, 55, 55);
+    position: sticky;
+    left: 0;
+    top: 0;
+    align-self: flex-start;
+    height: fit-content;
+    color: rgb(184, 184, 184);
+    padding: 0.25rem 0.6rem 0.1rem 0.3rem;
+    border-radius: 6px 0px 6px 0;
+    font-size: 12px;
+}
+
+.code p {
+    margin: 1.8rem 1rem 1rem 0;
+    display: inline-block;
+    position: relative;
+    left: -4.8rem;
+}
+
+.orng {
+    color: orange;
+}
+
+.grn {
+    color: rgb(60, 162, 60);
+}
+
+/** BUTTONS */
+
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn {
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.577);
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 7px;
+    border: 1.5px solid rgb(0, 0, 0);
+}
+
+.btn--margin-bottom {
+    margin-bottom: 1rem;
+}
+
+/*~ this is a workaround for making
+    the info box stay under the button
+    when has botm margn  */
+.btn--margin-bottom + .btn--more-info-box {
+    top: -2rem;
+}
+
+.btn--more-info-box {
+    
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    background-color: #eeeeee;
+    color: #202020;
+    position: relative;
+    top: -1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1.5px solid rgb(0, 115, 225);
+    animation: 0.5s ease-in-out;
+    transform-origin: top center;
+}
+
+.btn--more-info-box.hidden {
+    display: none;
+
+}
+
+@keyframes bounceDown {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    70% {
+        transform: scaleY(1.04);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceUp {
+    0% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    
+    20% {
+        transform: scaleY(1.04);
+        opacity: 0.8;
+    }
+    
+    100% {
+        transform: scaleY(0);
+        opacity: 0.2;
+    }
+}
+
+.btn--more-info-box p {
+    text-align: left;
+}
+
+.btn--more-info-box h2 {
+    margin-top: 2.5rem;
+}
+
+.btn--more-info-box h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+
