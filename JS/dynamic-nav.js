@@ -54,6 +54,14 @@ linkItem2.appendChild(linkCloning);
 // Append the list item to the links list
 linkList.appendChild(linkItem2);
 
+const linkItem3 = document.createElement("li");
+linkItem3.classList.add("link");
+const linkCommit = document.createElement("a");
+linkCommit.href = "/html/commit.html";
+linkCommit.innerText = "Commit";
+linkItem3.appendChild(linkCommit);
+linkList.appendChild(linkItem3);
+
 /****************LINKS****************** */
 /****************LINKS****************** */
 

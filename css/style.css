@@ -39,6 +39,12 @@ li a {
     font-size: 16px;
 }
 
+li a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgb(110, 203, 103);
+}
+
 em {
     font-style: normal;
 }
@@ -101,10 +107,12 @@ em {
     background-color: rgb(241, 241, 241);
 }
 
-.article__heading {
+.article__heading, 
+.article h2.h2--large {
     text-align: center;
     font-size: 32px;
     margin: 0.8rem;
+    border: 0;
 }
 
 .article h2 {
