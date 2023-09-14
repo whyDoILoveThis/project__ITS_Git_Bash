@@ -62,6 +62,14 @@ linkCommit.innerText = "Commit";
 linkItem3.appendChild(linkCommit);
 linkList.appendChild(linkItem3);
 
+const linkItem4 = document.createElement("li");
+linkItem4.classList.add("link");
+const linkPushPullAndFetch = document.createElement("a");
+linkPushPullAndFetch.href = "/html/push-pull-and-fetch.html";
+linkPushPullAndFetch.innerText = "Push, Pull, and Fetch";
+linkItem4.appendChild(linkPushPullAndFetch);
+linkList.appendChild(linkItem4);
+
 /****************LINKS****************** */
 /****************LINKS****************** */
 
