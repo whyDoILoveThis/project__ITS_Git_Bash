@@ -70,6 +70,14 @@ linkPushPullAndFetch.innerText = "Push, Pull, and Fetch";
 linkItem4.appendChild(linkPushPullAndFetch);
 linkList.appendChild(linkItem4);
 
+const linkItem5 = document.createElement("li");
+linkItem5.classList.add("link");
+const linkAmend = document.createElement("a");
+linkAmend.href = "/html/amend.html";
+linkAmend.innerText = "Amend";
+linkItem5.appendChild(linkAmend);
+linkList.appendChild(linkItem5);
+
 /****************LINKS****************** */
 /****************LINKS****************** */
 
