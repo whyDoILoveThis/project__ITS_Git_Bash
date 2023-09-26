@@ -78,6 +78,14 @@ linkAmend.innerText = "Amend";
 linkItem5.appendChild(linkAmend);
 linkList.appendChild(linkItem5);
 
+const linkItem6 = document.createElement("li");
+linkItem6.classList.add("link");
+const linkForcePush = document.createElement("a");
+linkForcePush.href = "/html/💥force-push.html";
+linkForcePush.innerText = "💥Force Push";
+linkItem6.appendChild(linkForcePush);
+linkList.appendChild(linkItem6);
+
 /****************LINKS****************** */
 /****************LINKS****************** */
 

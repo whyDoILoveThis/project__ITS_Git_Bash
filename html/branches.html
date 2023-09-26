@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>new-page</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1>Mastering Git Branch Navigation with Bash 🚀</h1>
+
+          <h2>🌱 List Branches:</h2>
+
+          <p>
+            To begin, let's learn how to list all the branches in your Git
+            repository. This step helps you understand which branches are
+            available for you to work with.
+          </p>
+
+          <div class="code"><p>git branch</p></div>
+
+          <p>
+            This command will display a list of both local and remote branches
+            in your repository.
+          </p>
+
+          <h2>🎉 Create a New Branch:</h2>
+
+          <p>
+            Creating a new branch is essential when you want to work on a new
+            feature or bug fix. Replace `branch_name` with the name you desire
+            for your new branch.
+          </p>
+
+          <div class="code"><p>git branch branch_name</p></div>
+
+          <p>This command creates a new branch but does not switch to it.</p>
+
+          <h2>🚀 Switch to a Branch:</h2>
+
+          <p>
+            Switching between branches is a fundamental Git operation. It allows
+            you to work on different tasks or features in isolation. To switch
+            to an existing branch, use the checkout command.
+          </p>
+
+          <div class="code"><p>git checkout branch_name</p></div>
+
+          <p>
+            Remember to replace `branch_name` with the name of the branch you
+            want to switch to.
+          </p>
+
+          <h2>📋 Create and Switch to a New Branch:</h2>
+
+          <p>
+            To streamline your workflow, you can create and switch to a new
+            branch in one command using the `-b` flag.
+          </p>
+
+          <div class="code"><p>git checkout -b new_branch_name</p></div>
+
+          <p>This is a quick way to start working on a new task.</p>
+
+          <h2>🔍 Check the Current Branch:</h2>
+
+          <p>
+            It's essential to know which branch you are currently on to avoid
+            making changes in the wrong place.
+          </p>
+
+          <div class="code"><p>git branch</p></div>
+
+          <h2>🧠 Stay Up-to-Date:</h2>
+
+          <p>
+            To keep your local branch up-to-date with changes from the remote
+            repository, use `git pull`. This command fetches and merges changes
+            from the remote branch into your current branch:
+          </p>
+          <div class="code"><p>git pull origin branch_name</p></div>
+
+          <p>
+            This command will show the currently checked-out branch with an
+            asterisk (*).
+          </p>
+
+          <h2>🌐 Fetch Remote Branches:</h2>
+
+          <p>
+            To access branches on the remote repository, you must first fetch
+            them to your local machine. This command updates your local branch
+            list to include remote branches.
+          </p>
+
+          <div class="code"><p>git fetch --all</p></div>
+
+          <h2>🔄 Switch to a Remote Branch:</h2>
+
+          <p>
+            Sometimes, you may need to switch to a branch from the remote
+            repository. This can be done using the `git checkout` command with
+            the full remote branch reference:
+          </p>
+
+          <div class="code"><p>git checkout origin/branch_name</p></div>
+
+          <p>This allows you to work on a branch from the remote repository.</p>
+
+          <h2>💼 Push Changes to a Branch:</h2>
+
+          <p>
+            When you've made changes in your local branch and want to share them
+            with others or back them up on the remote repository, use the
+            following command:
+          </p>
+
+          <div class="code"><p>git push origin branch_name</p></div>
+
+          <p>
+            This command pushes your changes to the specified branch on the
+            remote repository.
+          </p>
+
+          <h2>🧩 Merge Branches:</h2>
+
+          <p>
+            To combine changes from one branch into another, you can use the
+            merge command:
+          </p>
+
+          <div class="code"><p>git merge source_branch</p></div>
+
+          <p>
+            This command merges the changes from `source_branch` into your
+            current branch.
+          </p>
+
+          <h2>⚡️ Rebase onto Another Branch:</h2>
+
+          <p>
+            Rebasing is an alternative to merging, which can lead to a cleaner
+            project history. To rebase your current branch onto another branch:
+          </p>
+
+          <div class="code"><p>git rebase target_branch</p></div>
+
+          <p>
+            Rebasing can be especially useful when working on feature branches.
+          </p>
+
+          <h2>🌪 Resolve Conflicts:</h2>
+
+          <p>
+            In case of conflicts during a merge or rebase, don't panic! Resolve
+            them by editing the conflicted files, then add and continue the
+            operation:
+          </p>
+
+          <div class="code"><p>git add &lt;conflicted_files&gt;</p></div>
+          <div class="code">
+            <p>git rebase --continue # or git merge --continue</p>
+          </div>
+
+          <p>
+            Conflicts are a natural part of collaborative work, and resolving
+            them is a valuable skill.
+          </p>
+
+          <h2>⚠️ 🧹 Delete a Branch (with caution!):</h2>
+
+          <p>
+            Deleting a branch can be irreversible, so be very careful. Only
+            delete a branch when you're absolutely certain you won't need it
+            anymore. Use the following command, replacing `branch_name` with the
+            branch you want to delete:
+          </p>
+          <div class="code"><p>git branch -d branch_name</p></div>
+
+          <p>
+            Deleting a branch will discard all its changes, so use this command
+            sparingly!
+          </p>
+
+          <p>
+            Now, armed with these Git branch navigation commands, you're well on
+            your way to becoming a Git pro! 🌟 Remember, practice makes perfect,
+            so don't hesitate to explore and experiment with Git branches to
+            enhance your skills. Happy coding! 🚀🌿
+          </p>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+  </body>
+</html>
