@@ -86,6 +86,16 @@ linkForcePush.innerText = "💥Force Push";
 linkItem6.appendChild(linkForcePush);
 linkList.appendChild(linkItem6);
 
+const linkItem7 = document.createElement("li");
+linkItem7.classList.add("link");
+const linkFirebaseLogAuth = document.createElement("a");
+linkFirebaseLogAuth.href = "/html/firebase-login-auth.html";
+linkFirebaseLogAuth.innerText = "Firebase Login Auth";
+linkItem7.appendChild(linkFirebaseLogAuth);
+linkList.appendChild(linkItem7);
+
+
+
 /****************LINKS****************** */
 /****************LINKS****************** */
 

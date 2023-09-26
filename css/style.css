@@ -179,6 +179,10 @@ em {
     font-size: 12px;
 }
 
+.code.code--js::before {
+   content: 'javascript';
+}
+
 .code p {
     margin: 0.5rem 0 0.5rem 2rem;
     display: inline-block;

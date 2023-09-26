@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Firebase Login Auth</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">
+            🚀 Getting Started with Firebase User Authentication 📱
+          </h1>
+
+          <h2>Step 1: Create a Firebase Project 🏗️</h2>
+
+          <p>
+            Go to the Firebase Console (https://console.firebase.google.com/).
+          </p>
+          <p>Click on the "Add Project" button.</p>
+          <p>
+            Give your project a name and select your region. Click "Continue."
+          </p>
+
+          <h2>Step 2: Set Up Firebase in Your Project 🔌</h2>
+
+          <p>
+            After creating your project, click on "Web" to add a new web app to
+            your project.
+          </p>
+          <p>Register your app by giving it a nickname.</p>
+          <p>
+            Firebase will provide you with a config object containing API keys
+            and other credentials. Keep this safe; you'll need it later.
+          </p>
+
+          <h2>Step 3: Initialize Firebase in Your Project 🚀</h2>
+
+          <p>
+            In your HTML file, include Firebase by adding the following script
+            tag just before the closing body tag:
+          </p>
+
+          <div class="code code--js">
+            <p>
+              &lt;script
+              src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"&gt;&lt;/script&gt;
+            </p>
+            <p>
+              &lt;script
+              src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js"&gt;&lt;/script&gt;
+            </p>
+            <p>
+              &lt;script
+              src="https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js"&gt;&lt;/script&gt;
+            </p>
+            <p>&lt;script&gt;</p>
+            <p>const firebaseConfig = {</p>
+            <p>apiKey: "YOUR_API_KEY",</p>
+            <p>authDomain: "YOUR_AUTH_DOMAIN",</p>
+            <p>projectId: "YOUR_PROJECT_ID",</p>
+            <p>storageBucket: "YOUR_STORAGE_BUCKET",</p>
+            <p>messagingSenderId: "YOUR_MESSAGING_SENDER_ID",</p>
+            <p>appId: "YOUR_APP_ID",</p>
+            <p>measurementId: "YOUR_MEASUREMENT_ID"</p>
+            <p>};</p>
+            <p>firebase.initializeApp(firebaseConfig);</p>
+            <p>firebase.analytics();</p>
+            <p>&lt;/script&gt;</p>
+          </div>
+
+          <button class="btn moreInfoBtn">More Detailed Initialization</button>
+          <div class="hidden btn--more-info-box">
+            <h1>⚙️ Initializing Firebase in Your Project 🛠️</h1>
+
+            <h2>Step 3: Initialize Firebase in Your Project 🚀</h2>
+
+            <p>
+              In this step, you will include the necessary Firebase scripts in
+              your HTML file and initialize Firebase with the configuration
+              data.
+            </p>
+
+            <h3>Part 1: Include Firebase Scripts 📜</h3>
+
+            <p>To include Firebase in your project, follow these steps:</p>
+
+            <ol>
+              <li>
+                Go to the Firebase Console
+                (https://console.firebase.google.com/).
+              </li>
+              <li>Create a new project or select an existing one.</li>
+              <li>
+                Click on the gear icon (settings) next to "Project Overview" in
+                the left sidebar.
+              </li>
+              <li>
+                Under the "General" tab, scroll down to the "Your apps" section.
+                Here you'll find the SDK setup and configuration information.
+              </li>
+            </ol>
+
+            <h4>
+              Firebase Hosting:
+              <p>
+                If you plan to host your web app with Firebase Hosting, you'll
+                find a snippet like this:
+              </p>
+            </h4>
+
+            <div class="code code--js">
+              <p>
+                &lt;script
+                src="/__/firebase/9.4.0/firebase-app.js"&gt;&lt;/script&gt;
+              </p>
+              <p>
+                &lt;script
+                src="/__/firebase/9.4.0/firebase-auth.js"&gt;&lt;/script&gt;
+              </p>
+              <p>
+                &lt;script
+                src="/__/firebase/9.4.0/firebase-analytics.js"&gt;&lt;/script&gt;
+              </p>
+            </div>
+
+            <h4>
+              Non-Firebase Hosting:
+              <p>
+                If you're hosting your web app elsewhere, you can use the hosted
+                versions of Firebase scripts:
+              </p>
+            </h4>
+
+            <div class="code code--js">
+              <p>
+                &lt;script
+                src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"&gt;&lt;/script&gt;
+              </p>
+              <p>
+                &lt;script
+                src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js"&gt;&lt;/script&gt;
+              </p>
+              <p>
+                &lt;script
+                src="https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js"&gt;&lt;/script&gt;
+              </p>
+            </div>
+
+            <h3>Part 2: Get Your Configuration Object 📋</h3>
+
+            <p>
+              You also need to include a configuration object in your HTML. This
+              object contains crucial information to connect your app to
+              Firebase services. Here's how to obtain it:
+            </p>
+
+            <ol>
+              <li>
+                In the Firebase Console, go to your project settings again (the
+                gear icon).
+              </li>
+              <li>
+                Under the "General" tab, scroll down to the "Your apps" section.
+              </li>
+              <li>
+                Click on the web app you created earlier or "Add app" if you
+                haven't created one yet.
+              </li>
+              <li>
+                Give your app a nickname (e.g., "My Web App") and, optionally,
+                enable Firebase Hosting if you plan to use it.
+              </li>
+            </ol>
+
+            <p>
+              Firebase will generate the configuration object for your app. It
+              looks like this:
+            </p>
+
+            <div class="code code--js">
+              <p>const firebaseConfig = {</p>
+              <p>apiKey: "YOUR_API_KEY",</p>
+              <p>authDomain: "YOUR_AUTH_DOMAIN",</p>
+              <p>projectId: "YOUR_PROJECT_ID",</p>
+              <p>storageBucket: "YOUR_STORAGE_BUCKET",</p>
+              <p>messagingSenderId: "YOUR_MESSAGING_SENDER_ID",</p>
+              <p>appId: "YOUR_APP_ID",</p>
+              <p>measurementId: "YOUR_MEASUREMENT_ID"</p>
+              <p>};</p>
+            </div>
+
+            <p>
+              Copy this configuration object and paste it into the
+              &lt;script&gt; tag in your HTML, replacing the placeholders with
+              the actual values.
+            </p>
+
+            <h3>Part 3: Initialize Firebase 🚀</h3>
+
+            <p>
+              Finally, use the firebase.initializeApp() method to initialize
+              Firebase with your configuration object:
+            </p>
+
+            <div class="code code--js">
+              <p>&lt;script&gt;</p>
+              <p>// Replace this object with the configuration you obtained</p>
+              <p>const firebaseConfig = {</p>
+              <p>apiKey: "YOUR_API_KEY",</p>
+              <p>authDomain: "YOUR_AUTH_DOMAIN",</p>
+              <p>projectId: "YOUR_PROJECT_ID",</p>
+              <p>storageBucket: "YOUR_STORAGE_BUCKET",</p>
+              <p>messagingSenderId: "YOUR_MESSAGING_SENDER_ID",</p>
+              <p>appId: "YOUR_APP_ID",</p>
+              <p>measurementId: "YOUR_MEASUREMENT_ID"</p>
+              <p>};</p>
+              <p>// Initialize Firebase</p>
+              <p>firebase.initializeApp(firebaseConfig);</p>
+              <p>firebase.analytics();</p>
+              <p>&lt;/script&gt;</p>
+            </div>
+
+            <p>
+              Now, your web app is connected to Firebase, and you can start
+              using Firebase services, including user authentication.
+            </p>
+          </div>
+
+          <h2>Step 4: Create a Sign-Up Page 📝</h2>
+
+          <p>Design a beautiful sign-up form using HTML and CSS.</p>
+          <p>Add form fields for email and password.</p>
+          <p>Create a submit button.</p>
+
+          <h2>Step 5: Implement User Registration 📧</h2>
+
+          <p>In your JavaScript, add an event listener to the submit button.</p>
+          <p>
+            When the user submits the form, use Firebase Auth to create a new
+            user account:
+          </p>
+
+          <div class="code code--js">
+            <p>const email = document.getElementById('email').value;</p>
+            <p>const password = document.getElementById('password').value;</p>
+            <p>
+              firebase.auth().createUserWithEmailAndPassword(email, password)
+            </p>
+            <p>.then((userCredential) =&gt; {</p>
+            <p>// User registered successfully.</p>
+            <p>const user = userCredential.user;</p>
+            <p>console.log(`User registered: ${user.email}`);</p>
+            <p>})</p>
+            <p>.catch((error) =&gt; {</p>
+            <p>// Handle registration errors here.</p>
+            <p>const errorCode = error.code;</p>
+            <p>const errorMessage = error.message;</p>
+            <p>console.error(`Registration error: ${errorMessage}`);</p>
+            <p>});</p>
+          </div>
+          <button class="btn moreInfoBtn">More Info</button>
+          <div class="hidden btn--more-info-box">
+            <h1>📧 Implementing User Registration with Firebase 🔑</h1>
+
+            <h2>Step 5: Implement User Registration 📧</h2>
+
+            <h3>Part 1: Event Listener Setup 🎧</h3>
+
+            <p>
+              First, you need to set up an event listener for the submit button
+              in your HTML form. This listener will trigger the user
+              registration process when the form is submitted. Here's how to do
+              it:
+            </p>
+
+            <div class="code code--js">
+              <p>
+                // Assuming you have a submit button with an id="register-btn"
+              </p>
+              <p>
+                const registerButton = document.getElementById('register-btn');
+              </p>
+              <p>registerButton.addEventListener('click', (e) => {</p>
+              <p>
+                e.preventDefault(); // Prevent the default form submission
+                behavior
+              </p>
+              <p>// Your registration code goes here</p>
+              <p>});</p>
+            </div>
+
+            <h3>Part 2: User Registration 🚀</h3>
+
+            <p>
+              Inside the event listener, you'll use Firebase Authentication to
+              create a new user account. Here's a detailed explanation of each
+              step:
+            </p>
+
+            <div class="code code--js">
+              <p>
+                // Assuming you have input fields with id="email" and
+                id="password"
+              </p>
+              <p>const email = document.getElementById('email').value;</p>
+              <p>const password = document.getElementById('password').value;</p>
+              <p>
+                // Use the `createUserWithEmailAndPassword` method to register
+                the user
+              </p>
+              <p>
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+              </p>
+              <p>.then((userCredential) => {</p>
+              <p>// Registration successful</p>
+              <p>const user = userCredential.user;</p>
+              <p>console.log(`User registered: ${user.email}`);</p>
+              <p>})</p>
+              <p>.catch((error) => {</p>
+              <p>// Handle registration errors here</p>
+              <p>const errorCode = error.code;</p>
+              <p>const errorMessage = error.message;</p>
+              <p>console.error(`Registration error: ${errorMessage}`);</p>
+              <p>});</p>
+            </div>
+
+            <p>Here's what each part of the code does:</p>
+
+            <ol>
+              <li>
+                We retrieve the user's email and password from the input fields
+                in your form.
+              </li>
+              <li>
+                Then, we call
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+                to create a new user account using the provided email and
+                password.
+              </li>
+              <li>
+                If the registration is successful, the .then block is executed,
+                and you can access the registered user's information, such as
+                their email.
+              </li>
+              <li>
+                If there's an error during registration (e.g., invalid email or
+                password, email already in use), the .catch block will handle
+                it. You can access the error code and error message for
+                debugging purposes.
+              </li>
+            </ol>
+
+            <p>
+              Remember to add appropriate error handling and user feedback in
+              your UI to provide a smooth registration experience for your
+              users.
+            </p>
+
+            <p>
+              With this code, your web app can now register users securely using
+              Firebase Authentication. 🔐✨
+            </p>
+          </div>
+
+          <button class="btn moreInfoBtn">userCredential.user</button>
+          <div class="hidden btn--more-info-box">
+            <h1>🔐 Understanding Firebase User Authentication 🧐</h1>
+
+            <h2>How `userCredential.user` Works</h2>
+
+            <p>
+              The <code>userCredential.user</code> variable is provided by
+              Firebase Authentication, and you don't need to create it yourself.
+              It's an object that represents the authenticated user and contains
+              information about the user.
+            </p>
+
+            <h3>Here's how it works:</h3>
+
+            <ol>
+              <li>
+                When you successfully create a new user account or sign in a
+                user using Firebase Authentication, Firebase returns a
+                <code>userCredential</code> object as part of the authentication
+                process.
+              </li>
+              <li>
+                The <code>userCredential</code> object contains various
+                properties and methods related to the user authentication
+                process. One of its properties is <code>user</code>, which is an
+                object representing the authenticated user.
+              </li>
+              <li>
+                The <code>user</code> object contains information about the
+                authenticated user, such as their email address, unique user ID
+                (<code>uid</code>), display name, and more.
+              </li>
+            </ol>
+
+            <p>
+              So, when you access <code>userCredential.user</code> in your code,
+              you are accessing the object that Firebase Authentication provides
+              to you with information about the authenticated user. You don't
+              need to create this object; it's created and populated by Firebase
+              during the authentication process.
+            </p>
+          </div>
+
+          <h2>Step 6: Create a Sign-In Page 🔑</h2>
+
+          <p>Design a sign-in form similar to the sign-up form.</p>
+          <p>Add form fields for email and password.</p>
+          <p>Create a sign-in button.</p>
+
+          <h2>Step 7: Implement User Sign-In 🚪</h2>
+
+          <p>Add an event listener to the sign-in button.</p>
+          <p>Use Firebase Auth to sign in the user:</p>
+
+          <div class="code code--js">
+            <p>const email = document.getElementById('email').value;</p>
+            <p>const password = document.getElementById('password').value;</p>
+            <p>firebase.auth().signInWithEmailAndPassword(email, password)</p>
+            <p>.then((userCredential) =&gt; {</p>
+            <p>// User signed in successfully.</p>
+            <p>const user = userCredential.user;</p>
+            <p>console.log(`User signed in: ${user.email}`);</p>
+            <p>})</p>
+            <p>.catch((error) =&gt; {</p>
+            <p>// Handle sign-in errors here.</p>
+            <p>const errorCode = error.code;</p>
+            <p>const errorMessage = error.message;</p>
+            <p>console.error(`Sign-in error: ${errorMessage}`);</p>
+            <p>});</p>
+          </div>
+
+          <h2>Step 8: Add Sign-Out Functionality 🚀</h2>
+
+          <p>Create a "Sign Out" button in your UI.</p>
+          <p>Add an event listener to the button to sign the user out:</p>
+
+          <div class="code code--js">
+            <p>
+              document.getElementById('sign-out').addEventListener('click', ()
+              =&gt;
+            </p>
+            <p>firebase.auth().signOut().then(() =&gt; {</p>
+            <p>// User signed out successfully.</p>
+            <p>console.log('User signed out');</p>
+            <p>}).catch((error) =&gt; {</p>
+            <p>// Handle sign-out errors here.</p>
+            <p>console.error('Sign-out error', error);</p>
+            <p>});</p>
+          </div>
+
+          <h2>Step 9: Secure Your Routes 🔒</h2>
+
+          <p>
+            Use Firebase Authentication to protect specific routes or content
+            that only authenticated users should access.
+          </p>
+
+          <p>
+            Now you have a 🔥 Firebase-powered web app with user authentication!
+            Remember to handle errors gracefully and style your app to make it
+            visually appealing. Good luck with your project! 🌟🎉
+          </p>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+    <script src="/JS/dropdown-more-info.js"></script>
+  </body>
+</html>
