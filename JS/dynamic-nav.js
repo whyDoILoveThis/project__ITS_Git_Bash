@@ -88,11 +88,19 @@ linkList.appendChild(linkItem6);
 
 const linkItem7 = document.createElement("li");
 linkItem7.classList.add("link");
+const linkFirebaseHostingSetup = document.createElement("a");
+linkFirebaseHostingSetup.href = "/html/firebase-hosting-setup.html";
+linkFirebaseHostingSetup.innerText = "🔥Firebase Hosting Setup";
+linkItem7.appendChild(linkFirebaseHostingSetup);
+linkList.appendChild(linkItem7);
+
+const linkItem8 = document.createElement("li");
+linkItem8.classList.add("link");
 const linkFirebaseLogAuth = document.createElement("a");
 linkFirebaseLogAuth.href = "/html/firebase-login-auth.html";
-linkFirebaseLogAuth.innerText = "Firebase Login Auth";
-linkItem7.appendChild(linkFirebaseLogAuth);
-linkList.appendChild(linkItem7);
+linkFirebaseLogAuth.innerText = "🔐Firebase Login Auth";
+linkItem8.appendChild(linkFirebaseLogAuth);
+linkList.appendChild(linkItem8);
 
 
 
