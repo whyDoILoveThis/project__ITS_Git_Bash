@@ -1,3 +1,12 @@
+const head = document.getElementsByTagName('head')[0];
+const tabIcon = document.createElement("link");
+tabIcon.href = "/img/git-bash-icon.png";
+tabIcon.rel = "icon";
+head.appendChild(tabIcon);
+
+
+
+
 // Select the target element
 const container = document.querySelector(".main-wrap");
 
