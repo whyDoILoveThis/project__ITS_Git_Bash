@@ -58,7 +58,7 @@ const linkItem3 = document.createElement("li");
 linkItem3.classList.add("link");
 const linkCommit = document.createElement("a");
 linkCommit.href = "/html/commit.html";
-linkCommit.innerText = "Commit";
+linkCommit.innerText = "✅Commit";
 linkItem3.appendChild(linkCommit);
 linkList.appendChild(linkItem3);
 
