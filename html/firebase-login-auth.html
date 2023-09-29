@@ -35,44 +35,74 @@
           </p>
           <p>Register your app by giving it a nickname.</p>
           <p>
-            Firebase will provide you with a config object containing API keys
-            and other credentials. Keep this safe; you'll need it later.
+            <b>
+              Firebase will provide you with a config object containing API keys
+              and other credentials. Keep this safe; you'll need it later.
+            </b>
           </p>
 
           <h2>Step 3: Initialize Firebase in Your Project 🚀</h2>
 
           <p>
-            In your HTML file, include Firebase by adding the following script
-            tag just before the closing body tag:
+            Create a separate JavaScript module (e.g., firebase.js) responsible
+            for initializing Firebase and exporting the Firebase services you'll
+            use across your application.
           </p>
 
           <div class="code code--js">
             <p>
-              &lt;script
-              src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"&gt;&lt;/script&gt;
+              <em class="lite-blu">import</em> { initializeApp } from
+              <em class="grn">'firebase/app'</em>;
             </p>
             <p>
-              &lt;script
-              src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js"&gt;&lt;/script&gt;
+              <em class="lite-blu">import</em> { getAuth } from
+              <em class="grn">'firebase/auth'</em>;
             </p>
             <p>
-              &lt;script
-              src="https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js"&gt;&lt;/script&gt;
+              <em class="lite-blu">import</em> { getFirestore } from
+              <em class="grn">'firebase/firestore'</em>;
             </p>
-            <p>&lt;script&gt;</p>
-            <p>const firebaseConfig = {</p>
-            <p>apiKey: "YOUR_API_KEY",</p>
-            <p>authDomain: "YOUR_AUTH_DOMAIN",</p>
-            <p>projectId: "YOUR_PROJECT_ID",</p>
-            <p>storageBucket: "YOUR_STORAGE_BUCKET",</p>
-            <p>messagingSenderId: "YOUR_MESSAGING_SENDER_ID",</p>
-            <p>appId: "YOUR_APP_ID",</p>
-            <p>measurementId: "YOUR_MEASUREMENT_ID"</p>
+            <br />
+            <p>
+              <em class="comment"
+                >// Initialize Firebase with your Firebase configuration</em
+              >
+            </p>
+            <p><em class="lite-blu">const</em> firebaseConfig = {</p>
+            <p>apiKey: <em class="grn">'your-api-key'</em>,</p>
+            <p>authDomain: <em class="grn">'your-auth-domain'</em>,</p>
+            <p>projectId: <em class="grn">'your-project-id'</em>,</p>
+            <p>
+              <em class="comment"
+                >// ... other Firebase configuration options</em
+              >
+            </p>
             <p>};</p>
-            <p>firebase.initializeApp(firebaseConfig);</p>
-            <p>firebase.analytics();</p>
-            <p>&lt;/script&gt;</p>
+            <br />
+            <p>
+              <em class="lite-blu">const</em> app =
+              <em class="red">initializeApp</em>(firebaseConfig);
+            </p>
+            <p>
+              <em class="lite-blu">const</em> auth =
+              <em class="red">getAuth</em>(app);
+            </p>
+            <p>
+              <em class="lite-blu">const</em> db =
+              <em class="red">getFirestore</em>(app);
+            </p>
+            <br />
+            <p><em class="lite-blu">export</em> { app, auth, db };</p>
           </div>
+
+          <p>
+            In your HTML file, include this file just before the closing body
+            tag.
+            <b
+              >Your script element must be of type module for th imports to
+              work</b
+            >
+          </p>
 
           <button class="btn moreInfoBtn">More Detailed Initialization</button>
           <div class="hidden btn--more-info-box">

@@ -4,8 +4,12 @@ tabIcon.href = "/img/git-bash-icon.png";
 tabIcon.rel = "icon";
 head.appendChild(tabIcon);
 
+const article = document.querySelector(".article-wrap");
 
+const copyright = document.createElement("p");
+copyright.classList.add("copyright");
 
+article.appendChild(copyright);
 
 // Select the target element
 const container = document.querySelector(".main-wrap");
@@ -13,6 +17,17 @@ const container = document.querySelector(".main-wrap");
 // Create the main navigation element
 const navigation = document.createElement("nav");
 navigation.classList.add("nav");
+
+function expandNav(){
+    navigation.classList.toggle("nav-expanded")
+}
+
+const navToggler = document.createElement("img");
+navToggler.src = "/img/icon-nav-toggler.png";
+navToggler.classList.add("nav-toggler");
+navToggler.addEventListener("click", expandNav);
+
+
 
 // Create the logo-wrap div
 const logoWrap = document.createElement("div");
@@ -24,12 +39,14 @@ logoIcon.src = "/img/git-bash-icon.png";
 logoIcon.alt = "";
 logoIcon.classList.add("logo__icon");
 
+
 // Create the logo tag
 const logoTag = document.createElement("p");
 logoTag.classList.add("logo__tag");
 logoTag.innerText = "ITS Git Bash";
 
 // Append the logo icon and tag to the logo-wrap div
+logoWrap.appendChild(navToggler);
 logoWrap.appendChild(logoIcon);
 logoWrap.appendChild(logoTag);
 
@@ -110,6 +127,14 @@ linkFirebaseLogAuth.href = "/html/firebase-login-auth.html";
 linkFirebaseLogAuth.innerText = "🔐Firebase Login Auth";
 linkItem8.appendChild(linkFirebaseLogAuth);
 linkList.appendChild(linkItem8);
+
+const linkItem9 = document.createElement("li");
+linkItem9.classList.add("link");
+const linkModifyElementsBasedOnAuthStatus = document.createElement("a");
+linkModifyElementsBasedOnAuthStatus.href = "/html/modify-elements-for-auth-users.html";
+linkModifyElementsBasedOnAuthStatus.innerText = "🔀Modify Elements Based On Auth Status";
+linkItem9.appendChild(linkModifyElementsBasedOnAuthStatus);
+linkList.appendChild(linkItem9);
 
 
 

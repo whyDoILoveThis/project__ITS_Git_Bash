@@ -28,13 +28,13 @@ ul {
 }
 
 ul li {
-    padding: 0.8rem;
-    border-bottom: 1px solid black;
+    padding: 1rem 0 0.5rem 1rem;
+    border-bottom: 0.5px solid rgb(90, 105, 110);
 }
 
 li a {
     text-decoration: none;
-    color: rgb(241, 241, 241);
+    color: rgb(206, 231, 231);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 600;
     font-size: 19px;
@@ -59,37 +59,43 @@ em {
 /** NAV */
 
 .nav {
-    background-color: rgb(79, 79, 79);
+    z-index: 100;
+    background-color: rgb(50, 41, 56);
     display: flex;
     flex-direction: column;
     width: 30%;
     height: 100%;
-    border-right: 1px solid black;
+    border-right: 2px solid rgb(220, 208, 222);
     position: fixed;
     border-top-right-radius: 17px;
     overflow: auto;
     margin-top: 0.5rem;
+    transition: all 0.37s ease-out;
 }
 
 .logo-wrap {
     height: auto;
+    max-height: 40px;
     display: flex;
     align-items: center;
     gap: 0.3rem;
     padding: 0.7rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(115, 115, 115);
 }
 
 .logo__icon {
     width: 8vw;
+    max-width: 40px;
     height: 8vw;
+    max-height: 40px;
     display: inline;
 }
 
 .logo__tag {
-    color: rgb(255, 235, 168);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 3vw;
+    color: rgb(195, 195, 195);
+    font-family:  LucidaConsole, Arial, Helvetica, sans-serif;
+    white-space: 1px;
+    font-size: 24px;
     font-weight: 600;
     margin: 0;
 }
@@ -98,7 +104,6 @@ em {
     margin-left: 30%;
     width: calc(70% - 2rem * 2);
     padding: 2rem;
-    
 }
 
 .article {
@@ -193,12 +198,24 @@ em {
     flex: 0 0 100%;
 }
 
+.comment {
+    color: rgb(123, 123, 123);
+}
+
 .orng {
     color: orange;
 }
 
 .grn {
     color: rgb(60, 162, 60);
+}
+
+.lite-blu {
+    color: rgb(74, 189, 255);
+}
+
+.red {
+    color: rgb(246, 46, 83);
 }
 
 /** BUTTONS */
@@ -293,4 +310,81 @@ em {
     margin-bottom: 0;
 }
 
+@media screen and (min-width: 768px) {
+    .nav-toggler {
+        position: fixed;
+        display: none;
+        visibility: hidden;
+    }
+}
 
+@media screen and (max-width: 768px) {
+    ul li {
+        padding: 0.8rem 0.3rem 0.5rem 0.8rem;
+    }
+    
+    li a {
+        font-size: 17px;
+    }
+
+    .nav {
+        margin: 0;
+        width: 100%;
+        height: 60px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 1px 1px 1px 3px rgba(0, 0, 0, 0.179);
+    }
+
+    .nav-expanded {
+        width: 85%;
+        height: 120%;
+        box-shadow: 1px 1px 0px 700px rgba(0, 0, 0, 0.5);
+        border-bottom-left-radius: 0;
+    }
+
+    .nav-expanded .nav-toggler {
+        position: absolute;
+        transform: translateY(60px);
+    }
+
+    .logo-wrap {
+        place-self: center;
+        margin-bottom: 50px;
+    }
+    .logo__icon {
+        height: 40px;
+        width: 40px;
+    }
+    .nav-toggler {
+       width: 40px;
+       position: absolute;
+       left: 10px;
+       justify-self: center;
+       align-self: center;
+       transition: all 0.2s;
+    }
+
+    .logo__tag {
+        font-size: 22px;
+        white-space: nowrap;
+    }
+
+    .article-wrap {
+        margin: 0;
+        width: calc(100% - 0.5rem * 2);
+         padding: 0.5rem;
+         margin-top: 70px;
+     }
+     .article {
+        padding: 0.5rem;
+    }
+}
+
+.copyright::before {
+    content: '© 2023 - Ian Thai Smith ';
+    font-family: 'Times New Roman', Times, serif ;
+    display: flex;
+    justify-content: center;
+}
