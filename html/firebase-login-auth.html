@@ -14,8 +14,26 @@
       <section class="article-wrap">
         <article class="article">
           <h1 class="article__heading">
-            🚀 Getting Started with Firebase User Authentication 📱
+            🔐Getting Started with Firebase User Authentication
           </h1>
+          <h2>
+            ⚠️Use of the global firebase object was depricated in
+            Firebase-v9.4.0⚠️
+          </h2>
+          <p><b>🔴This means that any code you find like this:</b></p>
+          <div class="code code--js">
+            <p>if (<em class="red">firebase.</em>auth().currentUser)</p>
+          </div>
+          <p><b>🔴 OR THIS:</b></p>
+          <div class="code code--js">
+            <p><em class="red">firebase.</em>initializeApp(firebaseConfig)</p>
+            <p><em class="red">firebase.</em>analytics();</p>
+          </div>
+          <p><b>🔴IT WILL. NOT. WORK😡</b></p>
+          <p>
+            🟢Instead, use the modular approach in the following steps and
+            forget the global firebase object ever was a thing.💚
+          </p>
 
           <h2>Step 1: Create a Firebase Project 🏗️</h2>
 
@@ -41,27 +59,121 @@
             </b>
           </p>
 
-          <h2>Step 3: Initialize Firebase in Your Project 🚀</h2>
+          <p></p>
 
+          <h2>Step 3: Initialize Firebase in Your Project 🚀</h2>
           <p>
-            Create a separate JavaScript module (e.g., firebase.js) responsible
-            for initializing Firebase and exporting the Firebase services you'll
-            use across your application.
+            <b>
+              You should always create a dedicated module to centralize Firebase
+              imports.
+            </b>
           </p>
 
+          <p>
+            That means, create a separate JavaScript module (e.g., firebase.js)
+            responsible for initializing Firebase and exporting the Firebase
+            services you'll use across your application.
+          </p>
+
+          <p style="margin-bottom: 0">
+            <b>🛑✋HEAR YE HEAR YE🤚🛑</b>
+            <br />
+            IF YOU DO NOT BUNDLE WITH PARCEL OR SOME OTHER BUNDLER YOU WILL GET
+            AN ERR IF YOU DO NOT USE CDN PATHS.
+            <b>No bundler? Use CDN, or get an ERR</b>
+          </p>
+          <button style="margin-top: 0" class="btn moreInfoBtn btn--important">
+            No bundler? Err without CDN
+          </button>
+          <div class="hidden btn--more-info-box">
+            <h2>📦Bundler</h2>
+            <p>
+              If your files are ready and you have parcel globally installed
+              run:
+            </p>
+            <div class="code">
+              <p>parcel build index.html</p>
+            </div>
+            <p>
+              Once this finishes and your new 'dist' folder is created, you can
+              open a localhost for it with:
+            </p>
+            <div class="code">
+              <p>parcel index.html</p>
+            </div>
+            <p>
+              <b
+                >⚠️If you run index.html with anything(e.g. LiveServer
+                extension) other than your build tool it will not work because
+                it has to run out of the dist folder to access the relative
+                paths like this:
+              </b>
+            </p>
+            <div class="code code--js">
+              <p>
+                <em class="lite-blu">import</em> { initializeApp } from
+                <em class="grn">'firebase/app'</em>;
+              </p>
+              <p>
+                <em class="lite-blu">import</em> { getAnalytics } from
+                <em class="grn">'firebase/analytics'</em>;
+              </p>
+              <p><em class="lite-blu">import </em>{</p>
+              <p>getAuth,</p>
+              <p>createUserWithEmailAndPassword,</p>
+              <p>sendEmailVerification,</p>
+              <p>} from <em class="grn">'firebase/auth'</em>;</p>
+            </div>
+            <h2>🌐CDN</h2>
+            <h3>
+              <b
+                >🚨If you are not using a bundler (e.g. parcel or webpack), you
+                absolutely must use CDN paths like this:</b
+              >
+            </h3>
+            <div class="code code--js">
+              <p>
+                <em class="lite-blu">import</em> { initializeApp } from
+                <em class="grn"
+                  >'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js'</em
+                >;
+              </p>
+              <p>
+                <em class="lite-blu">import</em> { getAnalytics } from
+                <em class="grn"
+                  >'https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js'</em
+                >;
+              </p>
+
+              <p><em class="lite-blu">import </em>{</p>
+              <p>getAuth,</p>
+              <p>createUserWithEmailAndPassword,</p>
+              <p>sendEmailVerification,</p>
+              <p>
+                from
+                <em class="grn"
+                  >'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'</em
+                >;
+              </p>
+            </div>
+            <p><b>If you understand this you can procede.</b></p>
+          </div>
+          <br />
+          <p><b>So, back to our dedicated module.</b></p>
           <div class="code code--js">
             <p>
               <em class="lite-blu">import</em> { initializeApp } from
               <em class="grn">'firebase/app'</em>;
             </p>
             <p>
-              <em class="lite-blu">import</em> { getAuth } from
-              <em class="grn">'firebase/auth'</em>;
+              <em class="lite-blu">import</em> { getAnalytics } from
+              <em class="grn">'firebase/analytics'</em>;
             </p>
-            <p>
-              <em class="lite-blu">import</em> { getFirestore } from
-              <em class="grn">'firebase/firestore'</em>;
-            </p>
+            <p><em class="lite-blu">import </em>{</p>
+            <p>getAuth,</p>
+            <p>createUserWithEmailAndPassword,</p>
+            <p>sendEmailVerification,</p>
+            <p>} from <em class="grn">'firebase/auth'</em>;</p>
             <br />
             <p>
               <em class="comment"
@@ -87,98 +199,124 @@
               <em class="lite-blu">const</em> auth =
               <em class="red">getAuth</em>(app);
             </p>
-            <p>
-              <em class="lite-blu">const</em> db =
-              <em class="red">getFirestore</em>(app);
-            </p>
+
             <br />
-            <p><em class="lite-blu">export</em> { app, auth, db };</p>
+            <p>
+              <em class="lite-blu">export</em> { app, auth,
+              createUserWithEmailAndPassword, sendEmailVerification };
+            </p>
           </div>
 
           <p>
             In your HTML file, include this file just before the closing body
             tag.
+            <br />
             <b
-              >Your script element must be of type module for th imports to
-              work</b
+              >⚠️Your script element must be of type "module" for the imports to
+              work⚠️</b
             >
           </p>
+          <p>
+            <b>Using Firebase Services in Other Files:</b> In your other
+            JavaScript files, you can import the Firebase services you need by
+            simply importing them from the <b>firebase.js</b> module we just
+            created.
+          </p>
+          <div class="code code--js">
+            <p><em class="comment">// anotherFile.js</em></p>
+            <p>
+              <em class="lite-blu">import</em> { auth,
+              createUserWithEmailAndPassword, sendEmailVerification } from
+              <em class="grn">'./firebase'</em>;
+            </p>
+            <p>
+              <em class="comment">
+                // Now you can use the imported objects throughout this file.
+              </em>
+            </p>
+          </div>
 
           <button class="btn moreInfoBtn">More Detailed Initialization</button>
           <div class="hidden btn--more-info-box">
             <h1>⚙️ Initializing Firebase in Your Project 🛠️</h1>
 
-            <h2>Step 3: Initialize Firebase in Your Project 🚀</h2>
-
             <p>
               In this step, you will include the necessary Firebase scripts in
-              your HTML file and initialize Firebase with the configuration
-              data.
+              your dedicated module file and initialize Firebase with the
+              configuration data.
             </p>
 
             <h3>Part 1: Include Firebase Scripts 📜</h3>
 
-            <p>To include Firebase in your project, follow these steps:</p>
+            <p>
+              1. Go to the Firebase Console
+              (https://console.firebase.google.com/).
+            </p>
+            <p>2. Create a new project or select an existing one.</p>
+            <p>
+              3. Click on the gear icon ⚙️ next to "Project Overview" in the
+              left sidebar, and click 'Project Settings'.
+            </p>
+            <p>
+              4. Under the "General" tab, scroll down to the "Your apps"
+              section. Here you'll find the SDK setup and configuration
+              information.
+            </p>
 
-            <ol>
-              <li>
-                Go to the Firebase Console
-                (https://console.firebase.google.com/).
-              </li>
-              <li>Create a new project or select an existing one.</li>
-              <li>
-                Click on the gear icon (settings) next to "Project Overview" in
-                the left sidebar.
-              </li>
-              <li>
-                Under the "General" tab, scroll down to the "Your apps" section.
-                Here you'll find the SDK setup and configuration information.
-              </li>
-            </ol>
-
-            <h4>
-              Firebase Hosting:
-              <p>
-                If you plan to host your web app with Firebase Hosting, you'll
-                find a snippet like this:
-              </p>
-            </h4>
+            <h3>
+              🟢📦If you are using a bundler you can use the relative paths like
+              we discussed earier.
+            </h3>
+            <h3>
+              🔴🌐However, if you are not using a bundler and you need to use
+              CDN be aware of the following:
+            </h3>
+            <h3>Firebase Hosting:</h3>
+            <p>
+              If you are using Firebase to host your web app, you have the
+              option of using this:
+            </p>
 
             <div class="code code--js">
               <p>
-                &lt;script
-                src="/__/firebase/9.4.0/firebase-app.js"&gt;&lt;/script&gt;
+                <em class="lite-blu">import</em> { initializeApp } from
+                <em class="grn">'/__/firebasejs/9.4.0/firebase-app.js'</em>;
               </p>
               <p>
-                &lt;script
-                src="/__/firebase/9.4.0/firebase-auth.js"&gt;&lt;/script&gt;
+                <em class="lite-blu">import</em> { getAuth } from
+                <em class="grn">'/__/firebasejs/9.4.0/firebase-auth.js'</em>;
               </p>
               <p>
-                &lt;script
-                src="/__/firebase/9.4.0/firebase-analytics.js"&gt;&lt;/script&gt;
+                <em class="lite-blu">import</em> { getFirestore } from
+                <em class="grn">'/__/firebasejs/9.4.0/firebase-analytics.js'</em
+                >;
               </p>
             </div>
 
-            <h4>
-              Non-Firebase Hosting:
-              <p>
-                If you're hosting your web app elsewhere, you can use the hosted
-                versions of Firebase scripts:
-              </p>
-            </h4>
+            <h3>Non-Firebase Hosting:</h3>
+            <p>
+              If you're hosting your web app elsewhere, you MUST use the hosted
+              versions of Firebase scripts:
+            </p>
 
             <div class="code code--js">
               <p>
-                &lt;script
-                src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"&gt;&lt;/script&gt;
+                <em class="lite-blu">import</em> { initializeApp } from
+                <em class="grn"
+                  >'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js'</em
+                >;
               </p>
               <p>
-                &lt;script
-                src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js"&gt;&lt;/script&gt;
+                <em class="lite-blu">import</em> { getAuth } from
+                <em class="grn"
+                  >'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'</em
+                >;
               </p>
               <p>
-                &lt;script
-                src="https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js"&gt;&lt;/script&gt;
+                <em class="lite-blu">import</em> { getFirestore } from
+                <em class="grn"
+                  >'https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js'</em
+                >;
               </p>
             </div>
 
@@ -190,23 +328,7 @@
               Firebase services. Here's how to obtain it:
             </p>
 
-            <ol>
-              <li>
-                In the Firebase Console, go to your project settings again (the
-                gear icon).
-              </li>
-              <li>
-                Under the "General" tab, scroll down to the "Your apps" section.
-              </li>
-              <li>
-                Click on the web app you created earlier or "Add app" if you
-                haven't created one yet.
-              </li>
-              <li>
-                Give your app a nickname (e.g., "My Web App") and, optionally,
-                enable Firebase Hosting if you plan to use it.
-              </li>
-            </ol>
+            <p>Follow the 4 steps we just to navigate to settings.</p>
 
             <p>
               Firebase will generate the configuration object for your app. It
@@ -214,51 +336,123 @@
             </p>
 
             <div class="code code--js">
-              <p>const firebaseConfig = {</p>
-              <p>apiKey: "YOUR_API_KEY",</p>
-              <p>authDomain: "YOUR_AUTH_DOMAIN",</p>
-              <p>projectId: "YOUR_PROJECT_ID",</p>
-              <p>storageBucket: "YOUR_STORAGE_BUCKET",</p>
-              <p>messagingSenderId: "YOUR_MESSAGING_SENDER_ID",</p>
-              <p>appId: "YOUR_APP_ID",</p>
-              <p>measurementId: "YOUR_MEASUREMENT_ID"</p>
+              <p><em class="lite-blu">const</em> firebaseConfig = {</p>
+              <p>apiKey: <em class="grn">"YOUR_API_KEY"</em>,</p>
+              <p>authDomain: <em class="grn">"YOUR_AUTH_DOMAIN"</em>,</p>
+              <p>projectId: <em class="grn">"YOUR_PROJECT_ID"</em>,</p>
+              <p>storageBucket: <em class="grn">"YOUR_STORAGE_BUCKET"</em>,</p>
+              <p>
+                messagingSenderId:
+                <em class="grn">"YOUR_MESSAGING_SENDER_ID"</em>,
+              </p>
+              <p>appId: <em class="grn">"YOUR_APP_ID"</em>,</p>
+              <p>measurementId: <em class="grn">"YOUR_MEASUREMENT_ID"</em></p>
               <p>};</p>
             </div>
 
             <p>
-              Copy this configuration object and paste it into the
-              &lt;script&gt; tag in your HTML, replacing the placeholders with
-              the actual values.
+              Copy your configuration object and paste it after the imports in
+              your firebase.js.
             </p>
 
             <h3>Part 3: Initialize Firebase 🚀</h3>
 
             <p>
-              Finally, use the firebase.initializeApp() method to initialize
-              Firebase with your configuration object:
+              Create const vars to initialize Firebase, and hold the funtions we
+              want:
             </p>
 
             <div class="code code--js">
-              <p>&lt;script&gt;</p>
-              <p>// Replace this object with the configuration you obtained</p>
-              <p>const firebaseConfig = {</p>
-              <p>apiKey: "YOUR_API_KEY",</p>
-              <p>authDomain: "YOUR_AUTH_DOMAIN",</p>
-              <p>projectId: "YOUR_PROJECT_ID",</p>
-              <p>storageBucket: "YOUR_STORAGE_BUCKET",</p>
-              <p>messagingSenderId: "YOUR_MESSAGING_SENDER_ID",</p>
-              <p>appId: "YOUR_APP_ID",</p>
-              <p>measurementId: "YOUR_MEASUREMENT_ID"</p>
-              <p>};</p>
-              <p>// Initialize Firebase</p>
-              <p>firebase.initializeApp(firebaseConfig);</p>
-              <p>firebase.analytics();</p>
-              <p>&lt;/script&gt;</p>
+              <p class="comment">// Initialize Firebase</p>
+              <p>
+                <em class="lite-blu">const</em> app =
+                <em class="red">initializeApp</em>(firebaseConfig);
+              </p>
+              <p>
+                <em class="lite-blu">const</em> auth =
+                <em class="red">getAuth</em>(app);
+              </p>
+              <p>
+                <em class="lite-blu">const</em> db =
+                <em class="red">getFirestore</em>(app);
+              </p>
+              <br />
             </div>
-
+            <p>Finally create an export for your const vars.</p>
+            <div class="code code--js">
+              <p><em class="lite-blu">export</em> { app, auth, db };</p>
+            </div>
             <p>
               Now, your web app is connected to Firebase, and you can start
               using Firebase services, including user authentication.
+            </p>
+            <h3>Part 4: Using Firebase Services in Other Files💬</h3>
+            <p>
+              In your other JavaScript files, you can import the Firebase
+              services you need by simply importing them from the
+              <b>firebase.js</b> module we just created.
+            </p>
+            <div class="code code--js">
+              <p><em class="comment">// anotherFile.js</em></p>
+              <p>
+                <em class="lite-blu">import</em> { auth, db } from
+                <em class="grn">'./firebase'</em>;
+              </p>
+              <p>
+                <em class="comment">
+                  // Now you can use the imported 'auth' and 'db' objects
+                  throughout this file.
+                </em>
+              </p>
+            </div>
+          </div>
+          <button class="btn moreInfoBtn">
+            Why are we assigning the funtions to const vars?
+          </button>
+          <div class="hiddens btn--more-info-box">
+            <p><b>Creating Constants for app and auth:</b></p>
+            <p>
+              <b>'app'</b> is created to initialize the Firebase app using your
+              configuration (firebaseConfig). auth is created by calling
+              <b>getAuth(app)</b> to get an instance of Firebase Authentication
+              associated with the initialized app. This is a common pattern when
+              working with Firebase Modular SDK.
+            </p>
+            <p>
+              By storing auth as a constant, you can reuse it throughout your
+              code without needing to repeatedly call <b>getAuth(app)</b>.
+            </p>
+            <br />
+            <p>
+              <b>Exporting createUserWithEmailAndPassword:</b>
+              createUserWithEmailAndPassword is a function from Firebase Auth
+              module, and it is directly exported from the module to make it
+              available for import. There's no need to assign it to a constant
+              because it's not used repeatedly within firebase.js.
+            </p>
+            <p>
+              <b>Passing Parameters to Functions:</b> In the case of
+              getAuth(app), app is passed as a parameter because it associates
+              the Firebase Authentication instance (auth) with the initialized
+              Firebase app (app). It establishes a connection between the
+              Authentication service and the Firebase app. This pattern is
+              specific to Firebase's modular architecture, where services are
+              tied to specific Firebase app instances.
+            </p>
+            <p>
+              <b>When to Create Constants:</b> Constants (app and auth in this
+              case) are typically created for objects that are used extensively
+              throughout your application to avoid repetitive initialization and
+              function calls. You can choose to create constants for services
+              that are frequently used.
+            </p>
+            <p>
+              <b>In summary,</b> the decision to create constants or not and
+              when to pass parameters depends on the specific needs of your
+              application. The Firebase modular approach allows for flexibility
+              in how you structure your code, but it's generally a good practice
+              to create constants for frequently used objects and parameters
+              when needed to configure or associate services.
             </p>
           </div>
 
@@ -267,6 +461,41 @@
           <p>Design a beautiful sign-up form using HTML and CSS.</p>
           <p>Add form fields for email and password.</p>
           <p>Create a submit button.</p>
+
+          <div class="code code--html">
+            <p>
+              &lt;<em class="lite-blu">form</em> id=<em class="grn"
+                >"registration-form"</em
+              >&gt;
+            </p>
+            <p>
+              &nbsp;&nbsp;&lt;<em class="lite-blu">input</em> type=<em
+                class="grn"
+                >"email"</em
+              >
+              id=<em class="grn">"email" </em>placeholder=<em class="grn"
+                >"Email"</em
+              >
+              /&gt;
+            </p>
+            <p>
+              &nbsp;&nbsp;&lt;<em class="lite-blu">input</em> type=<em
+                class="grn"
+                >"password"</em
+              >
+              id=<em class="grn">"password"</em> placeholder=<em class="grn"
+                >"Password"</em
+              >
+              /&gt;
+            </p>
+            <p>
+              &nbsp;&nbsp;&lt;<em class="lite-blu">button</em> type=<em
+                class="grn"
+                >"submit"</em
+              >&gt;Sign Up&lt;/button&gt;
+            </p>
+            <p>&lt;/<em class="lite-blu">form</em>&gt;</p>
+          </div>
 
           <h2>Step 5: Implement User Registration 📧</h2>
 
