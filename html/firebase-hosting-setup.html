@@ -199,11 +199,11 @@
             <br />
             <div class="code">
               <p>
-                import { initializeApp } from
+                import { &nbsp;<em class="red">initializeApp</em> } from
                 "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
               </p>
               <p>
-                import { getAnalytics } from
+                import { <em class="red">getAnalytics</em> } from
                 "https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js";
               </p>
               <br />
@@ -218,8 +218,10 @@
               <p>measurementId: "R-DHHSGSDG",</p>
               <p>};</p>
               <br />
-              <p>const app = initializeApp(firebaseConfig);</p>
-              <p>const analytics = getAnalytics(app);</p>
+              <p>
+                const app =<em class="red">initializeApp</em>(firebaseConfig);
+              </p>
+              <p>const analytics = <em class="red">getAnalytics</em>(app);</p>
             </div>
             <p>
               You would need to add Firebase using the configuration (as you see
