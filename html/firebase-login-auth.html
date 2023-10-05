@@ -331,7 +331,7 @@
             <h2>🌐CDN</h2>
             <h3>
               <b
-                >🚨If you are not using a bundler (e.g. parcel or webpack), you
+                >🚨If you are NOT using a bundler (e.g. parcel or webpack), you
                 absolutely must use CDN paths like this:</b
               >
             </h3>
@@ -414,7 +414,7 @@
           </div>
 
           <p>
-            In your HTML file, include this file just before the closing body
+            In your HTML file, include this script just before the closing body
             tag.
             <br />
             <b
@@ -510,7 +510,7 @@
             <h3>Non-Firebase Hosting:</h3>
             <p>
               If you're hosting your web app elsewhere, you MUST use the hosted
-              versions of Firebase scripts:
+              versions of Firebase scripts unless you have used a bundler:
             </p>
 
             <div class="code code--js">
@@ -642,35 +642,31 @@
             <p>
               <b>'app'</b> is created to initialize the Firebase app using your
               configuration (firebaseConfig). auth is created by calling
-              <b><em class="red">getAuth</em>(app)</b> to get an instance of
-              Firebase Authentication associated with the initialized app. This
-              is a common pattern when working with Firebase Modular SDK.
+              <b>getAuth(app)</b> to get an instance of Firebase Authentication
+              associated with the initialized app. This is a common pattern when
+              working with Firebase Modular SDK.
             </p>
             <p>
               By storing auth as a constant, you can reuse it throughout your
               code without needing to repeatedly call
-              <b><em class="red">getAuth</em>(app)</b>.
+              <b>getAuth(app)</b>.
             </p>
             <br />
             <p>
-              <b
-                >Exporting
-                <em class="red">createUserWithEmailAndPassword</em>:</b
-              >
-              <em class="red">createUserWithEmailAndPassword</em> is a function
-              from Firebase Auth module, and it is directly exported from the
-              module to make it available for import. There's no need to assign
-              it to a constant because it's not used repeatedly within
-              firebase.js.
+              <b>Exporting createUserWithEmailAndPassword:</b>
+              createUserWithEmailAndPassword is a function from Firebase Auth
+              module, and it is directly exported from the module to make it
+              available for import. There's no need to assign it to a constant
+              because it's not used repeatedly within firebase.js.
             </p>
             <p>
               <b>Passing Parameters to Functions:</b> In the case of
-              <em class="red">getAuth</em>(app), app is passed as a parameter
-              because it associates the Firebase Authentication instance (auth)
-              with the initialized Firebase app (app). It establishes a
-              connection between the Authentication service and the Firebase
-              app. This pattern is specific to Firebase's modular architecture,
-              where services are tied to specific Firebase app instances.
+              getAuth(app), app is passed as a parameter because it associates
+              the Firebase Authentication instance (auth) with the initialized
+              Firebase app (app). It establishes a connection between the
+              Authentication service and the Firebase app. This pattern is
+              specific to Firebase's modular architecture, where services are
+              tied to specific Firebase app instances.
             </p>
             <p>
               <b>When to Create Constants:</b> Constants (app and auth in this
@@ -736,7 +732,7 @@
             <div class="code code--js">
               <p><em class="comnt">/* Your main JavaScript file */</em></p>
               <p></p>
-              <p>import * as bidDaddy from './myModule.js';</p>
+              <p>import * as bigDaddy from './myModule.js';</p>
               <p></p>
               <p>
                 console.log(bigDaddy.func1());
@@ -753,7 +749,7 @@
             </div>
 
             <p>
-              In this example, <code>import * as bidDaddy</code> imports all
+              In this example, <code>import * as bigDaddy</code> imports all
               exports from <code>myModule.js</code> into the
               <code>bigDaddy</code> object, allowing you to access them as
               properties of that object. This approach gives you a way to
@@ -1003,7 +999,7 @@
               </p>
 
               <h3>Example:</h3>
-              <div class="code">
+              <div class="code code--js">
                 <p><em class="comnt">// Select a button element</em></p>
                 <p>
                   <em class="blu">const</em> buttonElement =
@@ -1021,7 +1017,7 @@
               </p>
 
               <h3>Example:</h3>
-              <div class="code">
+              <div class="code code--js">
                 <p><em class="comnt">// Attach a 'click' event listener</em></p>
                 <p>buttonElement.addEventListener('click', (event) => {</p>
                 <p>
@@ -1531,7 +1527,7 @@
               </p>
 
               <h3>Example:</h3>
-              <div class="code">
+              <div class="code code--js">
                 <p>
                   <em class="comnt"
                     >// Event handling function for
@@ -2212,7 +2208,14 @@
             Use Firebase Authentication to protect specific routes or content
             that only authenticated users should access.
           </p>
-
+          <p>
+            <b>🚨🔴IMPORTANT WORD OF CAUTION🔴🚨</b>
+            <br />
+            This is the bare-bones-basics, and is intended to get you on the
+            right track, however in a real world application, proper security
+            measures should be taken to ensure the protection of important user
+            and/or site data.
+          </p>
           <p>
             Now you have a 🔥 Firebase-powered web app with user authentication!
             Remember to handle errors gracefully and style your app to make it
