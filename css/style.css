@@ -3,6 +3,9 @@
 /*TODO: REFACTOR FOR BETTER ORGANIZATION
         AND REMOVING REDUNDANCIES*/
 
+        :root {
+            --size--brightness-toggler: 50px;
+        }
 
 @font-face {
     font-family: LucidaConsole;
@@ -17,7 +20,9 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(224, 224, 224);
+    transition: background-color 0.3s ease-in;
+    background-color: rgb(36, 31, 35);
+
 }
 
 
@@ -78,9 +83,12 @@ em {
     max-height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.3rem;
     padding: 0.7rem;
     border-bottom: 1px solid rgb(115, 115, 115);
+    padding-right: var(--size--brightness-toggler);
+    
 }
 
 .logo__icon {
@@ -100,6 +108,13 @@ em {
     margin: 0;
 }
 
+.dark-mode-toggler-wrap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+ 
+}
+
 .article-wrap {
     margin-left: 30%;
     width: calc(70% - 2rem * 2);
@@ -113,7 +128,11 @@ em {
     flex-direction: column;
     padding: 3rem;
     padding-top: 2rem;
-    background-color: rgb(241, 241, 241);
+   
+    background-color: rgb(49, 49, 49);
+    color: rgba(255, 255, 255, 0.90);
+    transition: background-color 0.4s ease-in, color 0.5s ease-in;
+    
 }
 
 .article__heading, 
@@ -256,7 +275,10 @@ em {
     
     font-family: Roboto, Arial, Helvetica, sans-serif;
     background-color: #eeeeee;
+    background-color: #363232;
+
     color: #202020;
+    color: rgba(255, 255, 255, 0.90);
     position: relative;
     top: -1rem;
     padding: 1rem;
@@ -265,6 +287,7 @@ em {
     border: 1.5px solid rgb(0, 115, 225);
     animation: 0.5s ease-in-out;
     transform-origin: top center;
+    transition: background-color 0.4s ease-in, color 0.5s ease-in;
 }
 
 .btn--more-info-box.hidden {
@@ -325,7 +348,7 @@ em {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 778px) {
     ul li {
         padding: 0.8rem 0.3rem 0.5rem 0.8rem;
     }
@@ -361,17 +384,24 @@ em {
     .logo-wrap {
         place-self: center;
         margin-bottom: 50px;
+        padding-right: var(--size--brightness-toggler);
+        padding-left: var(--size--brightness-toggler);
     }
     .logo__icon {
         height: 40px;
         width: 40px;
     }
+    .dark-mode-toggler-wrap {
+        position: absolute;
+        top: 15px;
+        right: 10px;
+     
+    }
     .nav-toggler {
        width: 40px;
        position: absolute;
        left: 10px;
-       justify-self: center;
-       align-self: center;
+       
        transition: all 0.2s;
     }
 
@@ -396,4 +426,5 @@ em {
     font-family: 'Times New Roman', Times, serif ;
     display: flex;
     justify-content: center;
+    color: white;
 }

@@ -4,12 +4,12 @@ tabIcon.href = "/img/git-bash-icon.png";
 tabIcon.rel = "icon";
 head.appendChild(tabIcon);
 
-const article = document.querySelector(".article-wrap");
+const articleWrap = document.querySelector(".article-wrap");
 
 const copyright = document.createElement("p");
 copyright.classList.add("copyright");
 
-article.appendChild(copyright);
+articleWrap.appendChild(copyright);
 
 // Select the target element
 const container = document.querySelector(".main-wrap");
@@ -45,10 +45,55 @@ const logoTag = document.createElement("p");
 logoTag.classList.add("logo__tag");
 logoTag.innerText = "ITS Git Bash";
 
+
+const darkModeTogglerWrap = document.createElement("div");
+darkModeTogglerWrap.classList.add("dark-mode-toggler-wrap");
+const darkModeToggler = document.createElement("img");
+darkModeTogglerWrap.appendChild(darkModeToggler);
+darkModeToggler.src = "/img/icon-brightness-dim.png";
+darkModeToggler.style.width = "25px";
+darkModeToggler.classList.add(".dark-mode-toggler");
+
+const article = document.querySelector('.article')
+
+let bright = false;
+
+darkModeToggler.addEventListener("click", toggleBrightness);
+
+
+
+
+function toggleBrightness() {
+    const infoBoxes = document.querySelectorAll('.btn--more-info-box');
+    bright = !bright;
+    
+    if(bright){
+    darkModeToggler.src = "/img/icon-brightness-bright.png";
+    document.body.style.backgroundColor = 'rgb(224, 224, 224)';
+    article.style.backgroundColor = 'rgb(241, 241, 241)';
+    article.style.color = '#202020';
+    infoBoxes.forEach(infoBox => {
+        infoBox.style.backgroundColor = '#eeeeee';
+        infoBox.style.color = '#202020';
+    });
+    } else {
+        darkModeToggler.src = "/img/icon-brightness-dim.png";
+        document.body.style.backgroundColor = 'rgb(36, 31, 35)';
+        article.style.backgroundColor = 'rgb(49, 49, 49)';
+        article.style.color = 'rgba(255, 255, 255, 0.90)';
+        infoBoxes.forEach(infoBox => {
+            infoBox.style.backgroundColor = '#363232';
+            infoBox.style.color = 'rgba(255, 255, 255, 0.90)';
+        });
+    }
+}
+
 // Append the logo icon and tag to the logo-wrap div
 logoWrap.appendChild(navToggler);
 logoWrap.appendChild(logoIcon);
 logoWrap.appendChild(logoTag);
+
+
 
 // Create the links list
 const linkList = document.createElement("ul");
@@ -144,6 +189,7 @@ linkList.appendChild(linkItem9);
 
 // Append the logo-wrap div and links list to the navigation
 navigation.appendChild(logoWrap);
+navigation.appendChild(darkModeTogglerWrap);
 navigation.appendChild(linkList);
 
 // Append the navigation to the container
