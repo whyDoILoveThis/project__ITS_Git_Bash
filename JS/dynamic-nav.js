@@ -56,26 +56,35 @@ darkModeToggler.classList.add(".dark-mode-toggler");
 
 const article = document.querySelector('.article')
 
-let bright = false;
 
 darkModeToggler.addEventListener("click", toggleBrightness);
 
 
+const infoBoxes = document.querySelectorAll('.btn--more-info-box');
 
+// Check if 'bright' is stored in localStorage
+const storedBright = localStorage.getItem('bright');
 
+// Initialize 'bright' with the stored value (or default to false if not found)
+let bright = storedBright === 'false';
+
+// Function to toggle brightness
 function toggleBrightness() {
-    const infoBoxes = document.querySelectorAll('.btn--more-info-box');
     bright = !bright;
     
-    if(bright){
-    darkModeToggler.src = "/img/icon-brightness-bright.png";
-    document.body.style.backgroundColor = 'rgb(224, 224, 224)';
-    article.style.backgroundColor = 'rgb(241, 241, 241)';
-    article.style.color = '#202020';
-    infoBoxes.forEach(infoBox => {
-        infoBox.style.backgroundColor = '#eeeeee';
-        infoBox.style.color = '#202020';
-    });
+    // Store the updated 'bright' value in localStorage
+    localStorage.setItem('bright', bright);
+
+    // Update UI and apply styles based on 'bright' state
+    if (bright) {
+        darkModeToggler.src = "/img/icon-brightness-bright.png";
+        document.body.style.backgroundColor = 'rgb(224, 224, 224)';
+        article.style.backgroundColor = 'rgb(241, 241, 241)';
+        article.style.color = '#202020';
+        infoBoxes.forEach(infoBox => {
+            infoBox.style.backgroundColor = '#eeeeee';
+            infoBox.style.color = '#202020';
+        });
     } else {
         darkModeToggler.src = "/img/icon-brightness-dim.png";
         document.body.style.backgroundColor = 'rgb(36, 31, 35)';
@@ -87,6 +96,10 @@ function toggleBrightness() {
         });
     }
 }
+
+// Call toggleBrightness to initialize UI based on stored value
+toggleBrightness();
+
 
 // Append the logo icon and tag to the logo-wrap div
 logoWrap.appendChild(navToggler);
