@@ -206,6 +206,14 @@ linkMostSimpleUsernameDisplay.innerText = "📝Most Simple Username Display";
 linkItem10.appendChild(linkMostSimpleUsernameDisplay);
 linkList.appendChild(linkItem10);
 
+const linkItem11 = document.createElement("li");
+linkItem11.classList.add("link");
+const linkFirestoreSetup = document.createElement("a");
+linkFirestoreSetup.href = "/html/firestore-setup.html";
+linkFirestoreSetup.innerText = "🗃️Firestore Setup";
+linkItem11.appendChild(linkFirestoreSetup);
+linkList.appendChild(linkItem11);
+
 /****************LINKS****************** */
 /****************LINKS****************** */
 
