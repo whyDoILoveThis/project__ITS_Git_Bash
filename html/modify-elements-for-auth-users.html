@@ -29,15 +29,19 @@
 
           <h3>Selecting Elements with JavaScript:</h3>
           <p>
-            Use various methods like getElementById,
-            querySelector, or
+            Use various methods like getElementById, querySelector, or
             getElementsByClassName to select elements.
           </p>
 
-          <div class="code">
-            <p>// Select an element by its CSS selector</p>
+          <div class="code code--js">
             <p>
-              const element = document.querySelector('#elementID');
+              <em class="comnt">// Select an element by its CSS selector</em>
+            </p>
+            <p>
+              <em class="blu">const</em> element = document.querySelector(<em
+                class="grn"
+                >'#elementID'</em
+              >);
             </p>
           </div>
 
@@ -47,54 +51,55 @@
             fonts.
           </p>
 
-          <div class="code">
-            <p>// Change background color</p>
+          <div class="code code--js">
+            <p><em class="comnt">// Change background color</em></p>
             <p>
-              element.style.backgroundColor = '#4CAF50'; // Green
+              element.style.backgroundColor = <em class="grn">'#4CAF50'</em>;
             </p>
           </div>
 
           <h3>Modifying Content:</h3>
-          <p>
-            Change element content by modifying the
-            textContent property.
-          </p>
+          <p>Change element content by modifying the textContent property.</p>
 
-          <div class="code">
-            <p>// Modify text content</p>
+          <div class="code code--js">
+            <p><em class="comnt">// Modify text content</em></p>
             <p>
-              element.textContent = 'Welcome, Awesome User! 😎';
+              element.textContent =
+              <em class="grn">'Welcome, Awesome User! 😎'</em>;
             </p>
           </div>
 
           <h3>CSS Magic:</h3>
           <p>Use CSS to style elements, enhancing visual appeal.</p>
 
-          <div class="code">
+          <div class="code code--js">
             <p>
               <code
-                >/* Example CSS for styling authenticated and non-authenticated
-                content */</code
+                ><em class="comnt">
+                  /* Example CSS for styling authenticated and non-authenticated
+                  content */
+                </em></code
               >
             </p>
-            <p>element.style.fontSize = '24px';</p>
-            <p>element.style.color = 'white';</p>
+            <p>element.style.fontSize = <em class="grn">'24px'</em>;</p>
+            <p>element.style.color = <em class="grn">'white'</em>;</p>
           </div>
-
-          <div class="code">
-            <p><strong>Example: Modifying HTML Elements:</strong></p>
-            <p>if (firebase.auth().currentUser) {</p>
-            <p> // User is signed in</p>
+          <br />
+          <p><strong>Example: Modifying HTML Elements:</strong></p>
+          <div class="code code--js">
+            <p>if (auth.currentUser) {</p>
+            <p><em class="comnt">// User is signed in</em></p>
             <p>
-              
-                const element = document.querySelector('#elementID');</code
-              >
+              const element = document.querySelector(<em class="grn"
+                >'#elementID'</em
+              >); >
             </p>
             <p>
-               element.style.backgroundColor = '#4CAF50'; // Green
+              element.style.backgroundColor = <em class="grn">'#4CAF50'</em>;
             </p>
             <p>
-               element.textContent = 'Welcome, Awesome User! 😎';
+              element.textContent =
+              <em class="grn">'Welcome, Awesome User! 😎'</em>;
             </p>
             <p>}</p>
           </div>
@@ -110,37 +115,45 @@
           <h3>Creating a Container Element:</h3>
           <p>Create an HTML container element to insert new HTML content.</p>
 
-          <div class="code">
+          <div class="code code--html">
             <p>
-              <code
-                >&lt;!-- Create a container for injecting new HTML --&gt;</code
+              <em class="comnt"
+                >&lt;!-- Create a container for injecting new HTML --&gt;</em
               >
             </p>
-            <p>&lt;div id="htmlContainer"&gt;&lt;/div&gt;</p>
+            <p>
+              &lt;div id=<em class="grn">"htmlContainer"</em>&gt;&lt;/div&gt;
+            </p>
           </div>
 
           <h3>Using JavaScript to Insert HTML:</h3>
           <p>
-            Inject HTML code into the container using the
-            innerHTML property.
+            Inject HTML code into the container using the innerHTML property.
           </p>
 
-          <div class="code">
-            <p>// Your HTML string</p>
+          <div class="code code--js">
+            <p><em class="comnt">// Your HTML string</em></p>
             <p>
               <code
-                >const htmlString = '&lt;h1&gt;Hello,
-                &lt;em&gt;World!&lt;/em&gt;&lt;/h1&gt;';</code
+                ><em class="blu">const</em> htmlString =
+                <em class="grn">
+                  '&lt;h1&gt;Hello, &lt;em&gt;World!&lt;/em&gt;&lt;/h1&gt;' </em
+                >;</code
               >
             </p>
-            <p>// Get the container element</p>
+            <p><em class="comnt">// Get the container element</em></p>
             <p>
               <code
-                >const container =
-                document.getElementById('htmlContainer');</code
+                ><em class="blu">const</em> container =
+                document.getElementById(<em class="grn">'htmlContainer'</em
+                >);</code
               >
             </p>
-            <p>// Insert the HTML string into the container</p>
+            <p>
+              <em class="comnt"
+                >// Insert the HTML string into the container</em
+              >
+            </p>
             <p>container.innerHTML = htmlString;</p>
           </div>
 
@@ -160,15 +173,16 @@
           </p>
 
           <div class="code">
-            <p>// Check if the user is authorized</p>
-            <p>if (userIsAuthorized) {</p>
+            <p><em class="comnt">// Check if the user is authorized</em></p>
+            <p><em class="blu">if</em> (userIsAuthorized) {</p>
             <p>
-               // Add a class to show an authorized-only element
+              <em class="comnt"
+                >// Add a class to show an authorized-only element</em
+              >
             </p>
             <p>
-              
-                document.getElementById('authorizedElement').classList.add('show');</code
-              >
+              document.getElementById(<em class="grn">'authorizedElement'</em
+              >).classList.add(<em class="grn">'show'</em>);
             </p>
             <p>}</p>
           </div>
