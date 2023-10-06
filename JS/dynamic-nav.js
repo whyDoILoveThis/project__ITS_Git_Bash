@@ -195,7 +195,13 @@ linkModifyElementsBasedOnAuthStatus.innerText = "🔀Modify Elements Based On Au
 linkItem9.appendChild(linkModifyElementsBasedOnAuthStatus);
 linkList.appendChild(linkItem9);
 
-
+const linkItem10 = document.createElement("li");
+linkItem10.classList.add("link");
+const linkMostSimpleUsernameDisplay = document.createElement("a");
+linkMostSimpleUsernameDisplay.href = "/html/firebase-most-simple-username-display.html";
+linkMostSimpleUsernameDisplay.innerText = "📝Most Simple Username Display";
+linkItem10.appendChild(linkMostSimpleUsernameDisplay);
+linkList.appendChild(linkItem10);
 
 /****************LINKS****************** */
 /****************LINKS****************** */

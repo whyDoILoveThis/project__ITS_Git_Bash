@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Firebase Most Simple Username Display</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">
+            👤🍰The Most Simple Way to Display a Username With Firebase🔥
+          </h1>
+          <h2>Step 1: 🚚Import The Functions</h2>
+          <br />
+          <div class="code code--js">
+            <p>
+              <em class="blu">import</em> {<em class="red"> updateProfile</em> }
+              <em class="blu">from</em> <em class="grn">'./firebase'</em>;
+            </p>
+          </div>
+          <h2>Step 2: 🔡Grab Input From a Username Input Field</h2>
+          <div class="code code--js">
+            <p>
+              <em class="blu">const</em> username = document.getElementById(<em
+                class="grn"
+                >"username"</em
+              >).value;
+            </p>
+            <p>
+              <em class="blu">const</em> email = document.getElementById(<em
+                class="grn"
+                >"email"</em
+              >).value;
+            </p>
+            <p>
+              <em class="blu">const</em> password = document.getElementById(<em
+                class="grn"
+                >"password"</em
+              >).value;
+            </p>
+          </div>
+          <h2>Step 3: 🕑Directly After 'createUserWithEmailAndPassword();'</h2>
+          <br />
+          <div class="code">
+            <p>
+              <em class="blu">await</em>
+              <em class="red">updateProfile</em>(userCredential.user, {
+              <br />
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;displayName: username,
+              <br />
+              <br />
+              });
+            </p>
+          </div>
+          <p>After this is where we would send email verification.</p>
+          <h2>Step 4: 📝Display the Username</h2>
+          <p>Right after sending the verification email:</p>
+          <div class="code code--js">
+            <p>
+              <em class="blu">let</em> htmlString =
+              <em class="grn">
+                <strong>`</strong>&lt;h1&gt; ${username}&lt;/h1&gt;<strong
+                  >`</strong
+                ></em
+              >;
+            </p>
+
+            <em class="comnt"
+              >// Get the container element const container =</em
+            >
+            <p>document.querySelector(<em class="grn">'.user-name'</em>);</p>
+            <em class="comnt">// Insert the HTML string into the container</em>
+            <p>container.innerHTML = htmlString;</p>
+          </div>
+          <h2>Step 5: 🏁Finally, Check If User Is Signed In or Not</h2>
+          <p>If they are show the username, if not say 'Logged Off'</p>
+          <div class="code code--js">
+            <p><em class="blu">var</em> htmlString;</p>
+            <p>auth.<em class="red">onAuthStateChanged</em>((user) => {</p>
+            <p><em class="blu">if</em> (user) {</p>
+            <p>console.log(<em class="grn">'User is signed in'</em>);</p>
+            <p>
+              console.log(<em class="grn">'Username: '</em> + user.displayName);
+            </p>
+            <p class="em comnt">// Display the username in your application</p>
+            <p>
+              htmlString =
+              <em class="grn">`&lt;h1&gt;${user.displayName}&lt;/h1&gt;`</em>;
+            </p>
+
+            <pem class="comnt">// Get the container element</pem>
+
+            <p>
+              const container = document.querySelector<em class="grn"
+                >('.user-name'</em
+              >);
+            </p>
+
+            <p class="em comnt">// Insert the HTML string into the container</p>
+
+            <p>container.innerHTML = htmlString;</p>
+            <p>} <em class="blu">else</em> {</p>
+            <p>console.log(<em class="grn">'No user is signed in'</em>);</p>
+            <p>htmlString = `&lt;h1&gt;Logged Out&lt;/h1&gt;`;</p>
+
+            <p><em class="comnt">// Get the container element</em></p>
+
+            <p>
+              <em class="blu">const</em> container = document.querySelector(<em
+                class="grn"
+                >'.user-name'</em
+              >);
+            </p>
+
+            <p>
+              <em class="comnt"
+                >// Insert the HTML string into the container</em
+              >
+            </p>
+
+            <p>container.innerHTML = htmlString;</p>
+            <p>}</p>
+            <p>});</p>
+          </div>
+          <p>
+            This is the most basic way to achieve this functionality. If you
+            want a site where the user can make profiles and create items, like,
+            comment... Then you will find it better using the firestore db,
+            which we will cover next.
+          </p>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+  </body>
+</html>
