@@ -62,6 +62,7 @@ darkModeToggler.addEventListener("click", toggleBrightness);
 
 const infoBoxes = document.querySelectorAll('.btn--more-info-box');
 
+
 // Check if 'bright' is stored in localStorage
 const storedBright = localStorage.getItem('bright');
 
@@ -82,6 +83,7 @@ function toggleBrightness() {
     document.body.style.backgroundColor = 'rgb(224, 224, 224)';
     article.style.backgroundColor = 'rgb(241, 241, 241)';
     article.style.color = '#202020';
+    copyright.style.color = 'black';
     infoBoxes.forEach(infoBox => {
         infoBox.style.backgroundColor = '#eeeeee';
         infoBox.style.color = '#202020';
@@ -91,6 +93,7 @@ function toggleBrightness() {
         document.body.style.backgroundColor = 'rgb(36, 31, 35)';
         article.style.backgroundColor = 'rgb(49, 49, 49)';
         article.style.color = 'rgba(255, 255, 255, 0.90)';
+        copyright.style.color = 'white';
         infoBoxes.forEach(infoBox => {
             infoBox.style.backgroundColor = '#363232';
             infoBox.style.color = 'rgba(255, 255, 255, 0.90)';
@@ -122,7 +125,7 @@ linkItem1.classList.add("link");
 // Create the link itself
 const linkCreateNewRepo = document.createElement("a");
 linkCreateNewRepo.href = "/html/create-and-link-new-repo.html";
-linkCreateNewRepo.innerText = "Create & Link New Repository";
+linkCreateNewRepo.innerText = "🏗️Create & Link New Repository";
 // Append the link to the list item
 linkItem1.appendChild(linkCreateNewRepo);
 // Append the list item to the links list
@@ -133,7 +136,7 @@ const linkItem2 = document.createElement("li");
 linkItem2.classList.add("link");
 const linkCloning = document.createElement("a");
 linkCloning.href = "/html/cloning.html";
-linkCloning.innerText = "Cloning";
+linkCloning.innerText = "👯‍♀️Cloning";
 // Append the link to the list item
 linkItem2.appendChild(linkCloning);
 // Append the list item to the links list
@@ -151,7 +154,7 @@ const linkItem4 = document.createElement("li");
 linkItem4.classList.add("link");
 const linkPushPullAndFetch = document.createElement("a");
 linkPushPullAndFetch.href = "/html/push-pull-and-fetch.html";
-linkPushPullAndFetch.innerText = "Push, Pull, and Fetch";
+linkPushPullAndFetch.innerText = "🔃Push, Pull, and Fetch";
 linkItem4.appendChild(linkPushPullAndFetch);
 linkList.appendChild(linkItem4);
 
@@ -159,7 +162,7 @@ const linkItem5 = document.createElement("li");
 linkItem5.classList.add("link");
 const linkAmend = document.createElement("a");
 linkAmend.href = "/html/amend.html";
-linkAmend.innerText = "Amend";
+linkAmend.innerText = "🔙Amend";
 linkItem5.appendChild(linkAmend);
 linkList.appendChild(linkItem5);
 
