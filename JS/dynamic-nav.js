@@ -214,6 +214,23 @@ linkFirestoreSetup.innerText = "🗃️Firestore Setup";
 linkItem11.appendChild(linkFirestoreSetup);
 linkList.appendChild(linkItem11);
 
+const linkItem12 = document.createElement("li");
+linkItem12.classList.add("link");
+const linkUsingFirestore = document.createElement("a");
+linkUsingFirestore.href = "/html/using-firestore.html";
+linkUsingFirestore.innerText = "👨‍🚒Using Firestore";
+linkItem12.appendChild(linkUsingFirestore);
+linkList.appendChild(linkItem12);
+
+const linkItem13 = document.createElement("li");
+linkItem13.classList.add("link");
+const linkUnderstandThen = document.createElement("a");
+linkUnderstandThen.href = "/html/understanding-then.html";
+linkUnderstandThen.innerText = "🧐.then(() => {})??";
+linkItem13.appendChild(linkUnderstandThen);
+linkList.appendChild(linkItem13);
+
+
 /****************LINKS****************** */
 /****************LINKS****************** */
 

@@ -187,6 +187,12 @@ em {
     overflow: auto;
 }
 
+.code p::selection,
+.code em::selection {
+    background: rgba(214, 172, 238, 0.273);
+    color: inherit;
+}
+
 .code::-webkit-scrollbar {
     width: 12px;
     background-color: #F5F5F5;
@@ -226,6 +232,16 @@ em {
 .code--js::before {
    content: 'javascript';
    color: yellow;
+}
+
+.code--json::before {
+    content: 'json';
+    color: rgb(93, 184, 93);
+}
+
+.code--file-struct::before {
+    content: '📁';
+    font-size: 20px;
 }
 
 .code p {
