@@ -23,3 +23,9 @@ This project is starting to evolve into a reference guide for much more than jus
   This has turned into my way of breaking things down in order to understand them fully. Its giving me all of the css experience I can handle and im finnaly getting deeper into modern forms of JS. I am fully invested in this project at this time while still allowing time for 'Simpli-Recipes.com', and the 'ITS-guns' project. ITS-guns is going to be tough because the next thing I have to get up and running to move foward with it is user authentication which I am still in the process of tackling.
 
   Its working out great that I chose element selectors and very limited classes due to the massive amount of text... Still worried that potential problems could arise, but as of now none can be forseen.
+
+``
+10/25/2023
+So, it's definately time to separate this into two different projects. I have started the 'Learn-React18' project/notes thing as well. 
+
+  I used to write everything down in notebooks, but I find it better to learn this way. The best way for me to learn something foundational, or to grasp an overall concept is to write out. Draw a picture of it for my mind. I get the same experience, maybe even better doing it this way. Will finish out much of the course this way on react, also working on this, and I really need to get back to work on the recipes and guns.com clone. There is alot there to learn about authentication and APIs.
