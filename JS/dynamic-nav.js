@@ -174,61 +174,7 @@ linkForcePush.innerText = "💥Force Push";
 linkItem6.appendChild(linkForcePush);
 linkList.appendChild(linkItem6);
 
-const linkItem7 = document.createElement("li");
-linkItem7.classList.add("link");
-const linkFirebaseHostingSetup = document.createElement("a");
-linkFirebaseHostingSetup.href = "/html/firebase-hosting-setup.html";
-linkFirebaseHostingSetup.innerText = "🔥Firebase Hosting Setup";
-linkItem7.appendChild(linkFirebaseHostingSetup);
-linkList.appendChild(linkItem7);
 
-const linkItem8 = document.createElement("li");
-linkItem8.classList.add("link");
-const linkFirebaseLogAuth = document.createElement("a");
-linkFirebaseLogAuth.href = "/html/firebase-login-auth.html";
-linkFirebaseLogAuth.innerText = "🔐Firebase Login Auth";
-linkItem8.appendChild(linkFirebaseLogAuth);
-linkList.appendChild(linkItem8);
-
-const linkItem9 = document.createElement("li");
-linkItem9.classList.add("link");
-const linkModifyElementsBasedOnAuthStatus = document.createElement("a");
-linkModifyElementsBasedOnAuthStatus.href = "/html/modify-elements-for-auth-users.html";
-linkModifyElementsBasedOnAuthStatus.innerText = "🔀Modify Elements Based On Auth Status";
-linkItem9.appendChild(linkModifyElementsBasedOnAuthStatus);
-linkList.appendChild(linkItem9);
-
-const linkItem10 = document.createElement("li");
-linkItem10.classList.add("link");
-const linkMostSimpleUsernameDisplay = document.createElement("a");
-linkMostSimpleUsernameDisplay.href = "/html/firebase-most-simple-username-display.html";
-linkMostSimpleUsernameDisplay.innerText = "📝Most Simple Username Display";
-linkItem10.appendChild(linkMostSimpleUsernameDisplay);
-linkList.appendChild(linkItem10);
-
-const linkItem11 = document.createElement("li");
-linkItem11.classList.add("link");
-const linkFirestoreSetup = document.createElement("a");
-linkFirestoreSetup.href = "/html/firestore-setup.html";
-linkFirestoreSetup.innerText = "🗃️Firestore Setup";
-linkItem11.appendChild(linkFirestoreSetup);
-linkList.appendChild(linkItem11);
-
-const linkItem12 = document.createElement("li");
-linkItem12.classList.add("link");
-const linkUsingFirestore = document.createElement("a");
-linkUsingFirestore.href = "/html/using-firestore.html";
-linkUsingFirestore.innerText = "👨‍🚒Using Firestore";
-linkItem12.appendChild(linkUsingFirestore);
-linkList.appendChild(linkItem12);
-
-const linkItem13 = document.createElement("li");
-linkItem13.classList.add("link");
-const linkUnderstandThen = document.createElement("a");
-linkUnderstandThen.href = "/html/understanding-then.html";
-linkUnderstandThen.innerText = "🧐.then(() => {})??";
-linkItem13.appendChild(linkUnderstandThen);
-linkList.appendChild(linkItem13);
 
 
 /****************LINKS****************** */
