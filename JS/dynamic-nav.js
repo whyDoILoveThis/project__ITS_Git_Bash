@@ -35,9 +35,12 @@ logoWrap.classList.add("logo-wrap");
 
 // Create the logo icon
 const logoIcon = document.createElement("img");
+const homeLink = document.createElement("a");
+homeLink.href = "/index.html";
 logoIcon.src = "/img/git-bash-icon.png";
 logoIcon.alt = "";
 logoIcon.classList.add("logo__icon");
+homeLink.appendChild(logoIcon);
 
 
 // Create the logo tag
@@ -79,7 +82,7 @@ function toggleBrightness() {
  // Update UI and apply styles based on 'bright' state
 
     if(bright){
-    darkModeToggler.src = "/img/icon-brightness-bright.png";
+    fadeOutAndChange(darkModeToggler, "/img/icon-brightness-bright.png");
     document.body.style.backgroundColor = 'rgb(224, 224, 224)';
     article.style.backgroundColor = 'rgb(241, 241, 241)';
     article.style.color = '#202020';
@@ -89,7 +92,7 @@ function toggleBrightness() {
         infoBox.style.color = '#202020';
     });
     } else {
-        darkModeToggler.src = "/img/icon-brightness-dim.png";
+        fadeOutAndChange(darkModeToggler, "/img/icon-brightness-dim.png");
         document.body.style.backgroundColor = 'rgb(36, 31, 35)';
         article.style.backgroundColor = 'rgb(49, 49, 49)';
         article.style.color = 'rgba(255, 255, 255, 0.90)';
@@ -101,13 +104,22 @@ function toggleBrightness() {
     }
 }
 
+function fadeOutAndChange(element, newImageSrc) {
+    element.style.opacity = 0;
+    setTimeout(() => {
+        
+        element.src = newImageSrc;
+        element.style.opacity = 1;
+    }, 200); // Adjust the time to match your CSS transition duration
+}
+
 // Call toggleBrightness to initialize UI based on stored value
 toggleBrightness();
 
 
 // Append the logo icon and tag to the logo-wrap div
 logoWrap.appendChild(navToggler);
-logoWrap.appendChild(logoIcon);
+logoWrap.appendChild(homeLink);
 logoWrap.appendChild(logoTag);
 
 
@@ -158,6 +170,22 @@ linkPushPullAndFetch.innerText = "🔃Push, Pull, and Fetch";
 linkItem4.appendChild(linkPushPullAndFetch);
 linkList.appendChild(linkItem4);
 
+const linkItem7 = document.createElement("li");
+linkItem7.classList.add("link");
+const linkGitAlias = document.createElement("a");
+linkGitAlias.href = "/html/git-alias.html";
+linkGitAlias.innerText = "🧙‍♂️Git Alias";
+linkItem7.appendChild(linkGitAlias);
+linkList.appendChild(linkItem7);
+
+const dangerZone = document.createElement("h3");
+dangerZone.innerText = "⚠ DANGER ZONE ⚠";
+dangerZone.style.textAlign = "center";
+dangerZone.classList.add("red");
+dangerZone.style.marginBottom = "0";
+dangerZone.style.marginTop = "3rem";
+linkList.appendChild(dangerZone);
+
 const linkItem5 = document.createElement("li");
 linkItem5.classList.add("link");
 const linkAmend = document.createElement("a");
@@ -173,6 +201,7 @@ linkForcePush.href = "/html/💥force-push.html";
 linkForcePush.innerText = "💥Force Push";
 linkItem6.appendChild(linkForcePush);
 linkList.appendChild(linkItem6);
+
 
 
 
