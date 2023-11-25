@@ -62,6 +62,34 @@ const article = document.querySelector('.article')
 
 darkModeToggler.addEventListener("click", toggleBrightness);
 
+const otherGuidesWrap = document.createElement("div");
+otherGuidesWrap.classList.add("other-guides-wrap");
+
+const otherGuides = document.createElement("h3");
+otherGuides.innerText = "Other Guides";
+otherGuides.classList.add('other-guides-heading');
+otherGuides.style.textAlign = "center";
+otherGuides.style.marginBottom = "0";
+otherGuides.style.marginTop = "0.5rem";
+
+const linkBash = document.createElement('a');
+const imgBash = document.createElement("img");
+linkBash.classList.add('guide-link');
+imgBash.src = "/img/firebase-icon.png";
+linkBash.href = "https://its-firebase.vercel.app";
+linkBash.appendChild(imgBash);
+otherGuidesWrap.appendChild(linkBash);
+// another
+const linkReact18 = document.createElement('a');
+const imgReact18 = document.createElement("img");
+linkReact18.classList.add('guide-link');
+imgReact18.src = "/img/learn-react18-icon.png";
+linkReact18.href = "https://learn-react18.vercel.app";
+linkReact18.appendChild(imgReact18);
+otherGuidesWrap.appendChild(linkReact18);
+
+
+
 
 const infoBoxes = document.querySelectorAll('.btn--more-info-box');
 
@@ -129,6 +157,13 @@ const linkList = document.createElement("ul");
 linkList.classList.add("link__list");
 
 
+const quickRefs = document.createElement("h3");
+quickRefs.innerText = "Quick References";
+quickRefs.classList.add('quick-ref-heading');
+quickRefs.style.textAlign = "center";
+quickRefs.style.marginBottom = "0";
+quickRefs.style.marginTop = "3rem";
+linkList.appendChild(quickRefs);
 /****************LINKS****************** */
 /****************LINKS****************** */
 // Create a list item for the link
@@ -178,6 +213,14 @@ linkGitAlias.innerText = "🧙‍♂️Git Alias";
 linkItem7.appendChild(linkGitAlias);
 linkList.appendChild(linkItem7);
 
+const linkItem8 = document.createElement("li");
+linkItem8.classList.add("link");
+const linkBranches = document.createElement("a");
+linkBranches.href = "/html/branches.html";
+linkBranches.innerText = "🌿Branches";
+linkItem8.appendChild(linkBranches);
+linkList.appendChild(linkItem8);
+
 const dangerZone = document.createElement("h3");
 dangerZone.innerText = "⚠ DANGER ZONE ⚠";
 dangerZone.style.textAlign = "center";
@@ -213,6 +256,8 @@ linkList.appendChild(linkItem6);
 // Append the logo-wrap div and links list to the navigation
 navigation.appendChild(logoWrap);
 navigation.appendChild(darkModeTogglerWrap);
+navigation.appendChild(otherGuides);
+navigation.appendChild(otherGuidesWrap);
 navigation.appendChild(linkList);
 
 // Append the navigation to the container
