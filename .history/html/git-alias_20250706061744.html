@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>🧙‍♂️Git Alias</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">🚀 Creating Custom Git Commands 🛠️</h1>
+
+          <p>
+            If you want to shorten your Git commands for repetitive tasks, you
+            can create custom Git aliases. These aliases make your Git workflow
+            more efficient and fun! 😃
+          </p>
+
+          <h2>Step 1: Open Your Terminal 🖥️</h2>
+
+          <p>First, open your trusty Git Bash terminal.</p>
+
+          <h2>Step 2: Edit Your Git Configuration 📝</h2>
+
+          <p>
+            Use the following command to open your global Git configuration
+            file:
+          </p>
+
+          <div class="code">
+            <p>git config --global --edit</p>
+          </div>
+
+          <h2>Step 3: Add Aliases 🤖</h2>
+
+          <p>
+            Inside the configuration file, add your custom aliases like this:
+          </p>
+
+          <div class="code code--file-struct">
+            <p>[alias]</p>
+            <p>&nbsp;&nbsp;co = checkout</p>
+            <p>&nbsp;&nbsp;br = branch</p>
+            <p>&nbsp;&nbsp;ci = commit</p>
+            <p>&nbsp;&nbsp;st = status</p>
+            <p>&nbsp;&nbsp;lg = log --graph --oneline --all</p>
+          </div>
+
+          <p>
+            Feel free to create aliases for any Git command you use frequently.
+          </p>
+
+          <h2>Step 4: Save and Exit 💾</h2>
+
+          <p>Save your changes and exit the text editor.</p>
+
+          <h2>Step 5: Test Your New Alias! 🚧</h2>
+
+          <p>Now, you can use your custom Git commands. For example:</p>
+
+          <div class="code">
+            <p>git co my-feature-branch</p>
+          </div>
+
+          <p>This will be equivalent to:</p>
+
+          <div class="code">
+            <p>git checkout my-feature-branch</p>
+          </div>
+
+          <p>
+            Congratulations! You've made your Git commands snappier and more
+            enjoyable. 🎉✨
+          </p>
+
+          <h2>Step 6: Share the Joy 🤝</h2>
+
+          <p>
+            Don't keep this secret to yourself! Share your custom Git aliases
+            with your team to boost productivity. 💪👥
+          </p>
+
+          <p>
+            That's it! You've customized your Git commands like a pro! Enjoy
+            your streamlined Git workflow. 😎👍
+          </p>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+  </body>
+</html>

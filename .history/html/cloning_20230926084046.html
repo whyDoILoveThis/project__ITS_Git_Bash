@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>👯‍♂️ Cloning</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">
+            👯‍♂️Cloning a GitHub Repository with Bash
+          </h1>
+
+          <p>
+            To clone a GitHub repository using Bash, follow these simple steps:
+          </p>
+
+          <h2>Step 1: Open Terminal 🖥️</h2>
+
+          <p>
+            Launch your terminal or command prompt on your local machine. You're
+            about to embark on a code adventure! 🌟
+          </p>
+
+          <h2>Step 2: Navigate to Your Desired Directory 📂</h2>
+
+          <p>
+            Use the `cd` command to navigate to the directory where you want to
+            clone the GitHub repository. For example:
+          </p>
+
+          <div class="code"><p>cd ~/projects</p></div>
+
+          <h2>Step 3: Clone the Repository 🧬</h2>
+
+          <p>
+            Now, let's clone the repository. Use the `git clone` command
+            followed by the repository's URL:
+          </p>
+
+          <p><b>HTTPS:</b></p>
+          <div class="code">
+            <p>git clone https://github.com/username/repository.git</p>
+          </div>
+
+          <p><b>SSH:</b></p>
+
+          <div class="code">
+            <p>git clone git@github.com/username/repository.git</p>
+          </div>
+
+          <p>
+            Replace <b>username</b> with the GitHub username and
+            <b>repository</b> with the name of the repository you want to clone.
+          </p>
+
+          <h2>Step 4: Authenticate (if needed) 🔑</h2>
+
+          <p>
+            If the repository is private and requires authentication, you'll be
+            prompted to enter your GitHub username and password or a Personal
+            Access Token (PAT).
+          </p>
+
+          <h2>Step 5: Confirm Success 🎉</h2>
+
+          <p>
+            Once the cloning process is complete, you'll see a message
+            indicating that the repository has been cloned successfully! 🎈
+          </p>
+
+          <p>
+            Congratulations! You've successfully cloned a GitHub repository
+            using Bash. Happy coding! 💻✨
+          </p>
+
+          <h2 class="h2--large">💡 Understanding Cloning in Git 💡</h2>
+
+          <p>When you clone a repository in Git, here's what happens:</p>
+
+          <h2>🌐 Clone is Local</h2>
+
+          <p>
+            - The cloned repository is entirely local on your machine. It's a
+            separate copy of the original repository, and any changes you make
+            to it won't affect the original.
+          </p>
+
+          <h2>🔄 No Automatic Upstream Link</h2>
+
+          <p>
+            - By default, when you clone a repository, Git doesn't set up an
+            automatic link to the original repository (upstream). The cloned
+            repository is just a snapshot at the time of cloning.
+          </p>
+
+          <h2>🌿 A New Branch</h2>
+
+          <p>
+            - The default branch in the cloned repository is typically
+            <code>main</code> (formerly <code>master</code>) or whatever the
+            default branch was in the original repository at the time of
+            cloning. This is a local branch, not an upstream branch.
+          </p>
+
+          <h2>🤝 Can Have Multiple Clones</h2>
+
+          <p>
+            - You can clone a repository as many times as you want. Each clone
+            is independent of the others and doesn't affect the original
+            repository or other clones. This can be helpful for different
+            projects or collaborators.
+          </p>
+
+          <h2>⚠️🧐 Managing Multiple Clones</h2>
+
+          <p>
+            - While you can have multiple clones, managing them can become
+            complex if you have many. Consider organizing your workspace
+            efficiently. You can keep your clones in separate directories, each
+            dedicated to a specific project or purpose.
+          </p>
+
+          <h2>📜 No Record on Original Repository</h2>
+
+          <p>
+            - Cloning doesn't leave any trace or record on the original
+            repository. The owner or collaborators of the original repository
+            won't be notified or see that you've cloned their repository.
+          </p>
+
+          <h2>🆚 Differences Between Cloning and Forking</h2>
+
+          <p>
+            - Cloning creates an independent copy, whereas forking on platforms
+            like GitHub creates a copy that's associated with your GitHub
+            account. Forks are typically used for contributing to open-source
+            projects.
+          </p>
+
+          <h2>🌊 Pulling Changes</h2>
+
+          <p>
+            - To update your local clone with changes from the original
+            repository (if you want to), you can use the
+            <code>git pull</code> command within your local clone. This fetches
+            and merges any new changes from the upstream repository.
+          </p>
+
+          <h2>⚠️ Caution: Pushing Changes</h2>
+
+          <p>
+            - Be cautious about pushing changes from your local clone to the
+            original repository, especially if you're not the owner or a
+            collaborator. You usually need the necessary permissions to do this.
+          </p>
+
+          <h2>🔗 Linking to Upstream (Optional)</h2>
+
+          <p>
+            - If you want to establish a link to the original repository for
+            fetching updates, you can add a remote with the
+            <code>git remote add</code> command.
+          </p>
+
+          <div class="code">
+            <p>
+              git remote add origin git@github.com:YourUsername/YourRepo.git
+            </p>
+          </div>
+
+          <p>
+            This allows you to fetch changes from the original repository when
+            desired.
+          </p>
+
+          <p>
+            Cloning is a fundamental concept in Git, and it allows you to work
+            with repositories locally. Understanding how to manage multiple
+            clones and when to link them to the original repository will help
+            you use Git effectively. 🚀🌟
+          </p>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+  </body>
+</html>

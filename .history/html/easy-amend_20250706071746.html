@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>new-page</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1>🧠💾 If The Commit Is Only Local — You're In Easy Mode 😎</h1>
+          <p class="orng">
+            💀⚠️💀⚠️💀⚠️💀
+            <br />
+            This is only safe if your commit has not been pushed!!!!
+            <br />
+            <em class="red">
+              If you have <b>pushed</b> your commit, you should not amend it
+              unless you can do a <b>FORCE PUSH</b>
+            </em>
+            <br />
+            💀⚠️💀⚠️💀⚠️💀
+          </p>
+          <h2>
+            🟢 No one’s seen it. No one’s touched it. You can do whatever you
+            want.
+          </h2>
+          <h3>✅ JUST DO:</h3>
+          <div class="code">
+            <p>git add path/to/file<br /></p>
+          </div>
+          <h3>Then..</h3>
+          <div class="code">
+            <p>git commit --amend --no-edit</p>
+          </div>
+          <p>
+            That’s it. <br />
+            No force push. <br />
+            No problems. <br />
+            No drama.
+          </p>
+          <h2>🔍 Explanation:</h2>
+
+          <p>
+            <code>git commit --amend</code> = lets you modify your last commit
+          </p>
+          <p><code>--no-edit</code> = keeps your existing commit message</p>
+          <p>Since it’s not pushed, there's no risk of conflict</p>
+          <h2>💡 OPTIONAL — CHANGE THE COMMIT MESSAGE TOO?</h2>
+          <div class="code">
+            <p>
+              git commit --amend
+              <em class="comt"
+                ># Then your editor will open so you can rewrite the message</em
+              >
+            </p>
+          </div>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+    <script src="/JS/copy-code-btn.js"></script>
+  </body>
+</html>

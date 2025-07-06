@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>🔙Amend</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">
+            🔙Git Amend: Your Comprehensive Guide
+          </h1>
+
+          <p>
+            Git Amend is a versatile tool that empowers you to modify commits in
+            your Git history. Whether it's fixing errors, refining commit
+            messages, or even renaming commits, Git Amend is your go-to
+            solution. Here's everything you need to know, complete with clear
+            steps and code examples.
+          </p>
+
+          <h2>🚨 Handle with Care: The Danger of Amending 🚨</h2>
+
+          <p>
+            ⚠️ When amending commits, exercise caution, especially with commits
+            that have already been pushed to shared repositories. Amending
+            rewrites history and can lead to conflicts for collaborators.
+            Communication is key!
+          </p>
+
+          <h2>🚨Danger: Force Push Alert!🚨</h2>
+
+          <p>
+            - If the commit you amend has already been pushed to a shared
+            repository, you might need to force push to update the remote
+            branch. Be mindful of potential conflicts.
+          </p>
+
+          <h2>🌟 Why You Need Git Amend 🌟</h2>
+
+          <p>
+            - <b>Mistake Correction</b>: We all make mistakes! Git Amend lets
+            you fix those embarrassing typos or missing changes in your last
+            commit.
+          </p>
+          <p>
+            - <b>Tidy History</b>: Maintain a clean and organized commit history
+            by making adjustments without creating a flood of new commits.
+          </p>
+
+          <h2>🛠️ The Git Amend Workflow 🛠️</h2>
+
+          <p>Let's dive into a step-by-step guide with code examples:</p>
+
+          <h3>Step 1: Make Changes</h3>
+
+          <p>
+            - Make the necessary changes to your project files. For instance, if
+            you have a typo in index.html, correct it.
+          </p>
+
+          <div class="code"><p>nano index.html</p></div>
+
+          <h3>Step 2: Stage Changes</h3>
+
+          <p>
+            - Add your changes to the staging area using <code>git add</code>.
+          </p>
+
+          <div class="code"><p>git add index.html</p></div>
+
+          <h3>Step 3: Amend Commit</h3>
+
+          <p>
+            - Now, use the <code>git commit --amend command</code> to
+            incorporate the staged changes into the last commit. This also opens
+            a text editor to adjust the commit message if needed.
+          </p>
+
+          <div class="code">
+            <p>git commit --amend</p>
+          </div>
+
+          <h3>Step 4: Review Changes</h3>
+
+          <p>
+            - Confirm that everything is as expected by reviewing your commit
+            history.
+          </p>
+
+          <div class="code"><p>git log --oneline</p></div>
+
+          <h2>🚨 The Danger Zone: Force Push Alert! 🚨</h2>
+
+          <p>
+            - If the commit you amend has already been pushed to a shared
+            repository, you might need to force push to update the remote
+            branch. Be mindful of potential conflicts.
+          </p>
+
+          <div class="code"><p>git push -f</p></div>
+
+          <h2>📝 Recap and Summary 📝</h2>
+
+          <p>- Git Amend integrates staged changes into the last commit.</p>
+          <p>
+            - It's excellent for correcting mistakes and maintaining a neat
+            history.
+          </p>
+          <p>
+            - ⚠️Caution is crucial when amending pushed commits to avoid
+            conflicts.
+          </p>
+          <p>
+            - ❗After amending, consider a force push to update the remote
+            branch.
+          </p>
+
+          <p>
+            With this knowledge, you're equipped to wield Git Amend effectively.
+            It's a valuable tool for ensuring your Git history remains polished
+            and error-free. 🌟🔨 Happy coding! 🚀👩‍💻
+          </p>
+          <!--& INFO-BUTTON-->
+          <!--^ ^^^^^^^^^^^-->
+          <button class="btn moreInfoBtn">A Bit More Context</button>
+          <div class="hidden btn--more-info-box">
+            <h1>🔧 Git Amend: Most Recent Commit Adjustments 🚀</h1>
+
+            <p>
+              Git Amend is your trusty tool for refining your most recent Git
+              commit. Here's how it works:
+            </p>
+
+            <h2>Step 1: 🛠️ Stage Your Changes</h2>
+            <p>
+              <b>1.</b> <strong>Stage your changes</strong> using
+              <code>git add</code>. This prepares your alterations for
+              incorporation into the upcoming commit.
+            </p>
+
+            <h2>Step 2: 🔄 Amend Your Commit</h2>
+            <p>
+              <b>2.</b> Utilize the <code>git commit --amend</code> command.
+              This magic command
+              <strong>merges the staged changes with your last commit</strong>,
+              forging a new commit with a fresh snapshot of your project.
+            </p>
+
+            <p>
+              In summary, Git Amend is your ticket to fine-tuning commit
+              messages, rectifying minor errors, or inserting any missed changes
+              into your latest commit. Just remember, if the commit you're
+              amending has already ventured into the realm of shared
+              repositories, tread carefully and ponder the potential impact on
+              your fellow collaborators. 🌟🚀
+            </p>
+          </div>
+          <!--& INFO-BUTTON-->
+          <!--^ ^^^^^^^^^^^-->
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+    <script src="/JS/dropdown-more-info.js"></script>
+  </body>
+</html>

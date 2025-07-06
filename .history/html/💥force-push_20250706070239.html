@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>💥Force Push💥</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">🧨 FORCE PUSH: Overwriting Remote 🔥</h1>
+
+          <h2>
+            🚨Caution:🚨 Potentially Risky Operation Ahead! Proceed with Care!
+          </h2>
+
+          <p>
+            If you've removed some commits via the Git Bash rebase editor and
+            your local repository keeps pulling them back from GitHub, here's
+            how to resolve it and make your local commit log take over:
+          </p>
+
+          <h2>Step 1: Ensure You're on the Right Branch 🌿</h2>
+
+          <p>
+            First, double-check that you're on the correct branch where you want
+            to apply the changes.
+          </p>
+
+          <div class="code"><p>git branch</p></div>
+
+          <p>
+            Make sure the branch you're working on is the one where you
+            performed the rebase.
+          </p>
+
+          <h2>Step 2: Force Push to Update GitHub 💥</h2>
+
+          <p>
+            To make your local commit log take over the remote branch on GitHub,
+            use a force push. But beware, this overwrites history, so only do
+            this if you're certain.
+          </p>
+
+          <div class="code"><p>git push --force</p></div>
+
+          <h1>
+            🚨 Warning: Force pushing can overwrite remote history! Be
+            absolutely sure you want to proceed! 🚨
+          </h1>
+
+          <h2>Step 3: Verify Changes on GitHub 🕵️‍♀️</h2>
+
+          <p>
+            Go to your GitHub repository and check if the unwanted commits have
+            been removed and your local commit log has taken over.
+          </p>
+
+          <h2>Step 4: Synchronize with Remote 🔄</h2>
+
+          <p>
+            To ensure your local and remote branches are in sync, perform a
+            regular push without the force option.
+          </p>
+
+          <div class="code"><p>git push</p></div>
+
+          <p>
+            Now your local commit log should be in control, and those unwanted
+            commits should be gone from the remote repository. 🎉
+          </p>
+
+          <p>
+            Remember to communicate with your team if you're working in a
+            collaborative environment to avoid any conflicts. Happy coding!
+            👨‍💻👩‍💻🚀
+          </p>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+    <script>
+      document.querySelectorAll(".code").forEach((codeBlock) => {
+        // Create copy button
+        const btn = document.createElement("button");
+        btn.className = "copy-btn";
+        btn.textContent = "Copy";
+
+        // Insert button into the code block
+        codeBlock.style.position = "relative";
+        codeBlock.appendChild(btn);
+
+        // Copy logic
+        btn.addEventListener("click", () => {
+          const text = codeBlock.querySelector("p").innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => (btn.textContent = "Copy"), 2000);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

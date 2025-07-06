@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>🔁Push, Pull, and Fetch</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">
+            🔃 Git Push, Pull, and Fetch: Navigating the Git Landscape 🌄
+          </h1>
+
+          <p>
+            Git, the trusty guide of version control, offers three essential
+            commands - Push, Pull, and Fetch. Each serves a unique purpose,
+            helping you manage your code efficiently. Let's embark on this
+            journey with straightforward code examples. 🌟⛵
+          </p>
+
+          <h2>🚀 Git Push: Sending Your Changes 📤</h2>
+
+          <p>
+            <b>Purpose:</b> Git Push allows you to share your local code changes
+            with a remote repository, facilitating collaboration and
+            synchronization. 🌟
+          </p>
+
+          <div class="code"><p>git push origin main</p></div>
+
+          <p><b>Description:</b></p>
+
+          <p>
+            <b>Push Command 🚀:</b> Use <code>git push</code> to initiate the
+            push.
+          </p>
+          <p>
+            <b>Destination 🎯:</b> Specify the remote repository (e.g.,
+            'origin') and the branch you want to push to (e.g., 'main').
+          </p>
+          <p>
+            <b>Sending Commits 📤:</b> Git bundles your local commits and sends
+            them to the specified remote branch.
+          </p>
+          <p>
+            <b>Fast-Forward Merge ⏩:</b> If your local branch can be merged
+            smoothly with the remote branch, Git performs the update.
+          </p>
+          <p>
+            <b>Merge Conflicts 😬:</b> If there are conflicting changes, Git
+            prompts you to resolve them before the push proceeds.
+          </p>
+
+          <h2>🔄 Git Pull: Bringing Changes to Your Doorstep 🏡</h2>
+
+          <p>
+            <b>Purpose:</b> Git Pull is your way of getting the latest changes
+            from a remote repository and merging them into your local branch. 🏡
+          </p>
+
+          <div class="code"><p>git pull origin feature-branch</p></div>
+
+          <p><b>Description:</b></p>
+
+          <p>
+            <b>Pull Command 🔄:</b> Use <code>git pull</code> followed by the
+            remote and branch name to initiate the pull.
+          </p>
+          <p>
+            <b>Fetch 🚚:</b> Git contacts the remote repository and retrieves
+            the latest changes, including new branches and commits.
+          </p>
+          <p>
+            <b>Merge 🤝:</b> Git automatically merges the fetched changes into
+            your current local branch.
+          </p>
+
+          <p>
+            <b>⚠️ Warning:</b> Git Pull can automatically merge changes,
+            potentially leading to unexpected conflicts. Be cautious!
+          </p>
+
+          <h2>🚚 Git Fetch: Scouting the Terrain 🏞️</h2>
+
+          <p>
+            <b>Purpose:</b> Git Fetch is like sending out scouts; it retrieves
+            remote changes but keeps them separate from your local branch,
+            giving you control over integration. 🏞️
+          </p>
+
+          <div class="code"><p>git fetch origin</p></div>
+
+          <p><b>Description:</b></p>
+
+          <p>
+            <b>Fetch Command 🚚:</b> Use <code>git fetch</code> followed by the
+            remote name to retrieve remote changes.
+          </p>
+          <p>
+            <b>Fetch Only 🚚:</b> Git fetches all remote changes, including new
+            branches and commits, but doesn't merge them into your local branch.
+          </p>
+          <p>
+            <b>Review and Merge 🧐:</b> You can review the fetched changes and
+            choose to merge them manually using <code>git merge</code> or
+            <code>git rebase</code>.
+          </p>
+
+          <p>
+            <b>⚠️ Warning:</b> Git Fetch doesn't automatically merge changes,
+            reducing the risk of unexpected conflicts but requiring an extra
+            step for integration.
+          </p>
+          <!--& INFO-BUTTON-->
+          <!--^ ^^^^^^^^^^^-->
+          <button class="btn moreInfoBtn btn--margin-bottom">
+            Merge vs. Rebase
+          </button>
+          <div class="hidden btn--more-info-box">
+            <h1>🕵️‍♂️ Git Merge vs. Git Rebase</h1>
+
+            <p>
+              Git Merge and Git Rebase are two distinct methods for integrating
+              changes into your branch, each with its own set of superpowers!
+              Let's unveil the secret behind these commands. 🧐
+            </p>
+
+            <h2>🚀 Git Merge: The Collaboration Hero 🦸‍♀️</h2>
+
+            <p>
+              Imagine Git Merge as a friendly team collaboration. 🙌 It's a
+              straightforward process:
+            </p>
+
+            <div class="code"><p>git merge &lt;branch-name&gt;</p></div>
+
+            <p>
+              <b>Branch Merge</b> 🌿: You're on your current branch and want to
+              combine changes from another branch into it.
+            </p>
+
+            <p>
+              <b>Merge Command</b> 🔄: You use
+              <code>git merge &lt;branch-name&gt;</code> to initiate the merge
+              process.
+            </p>
+
+            <p>
+              <b>Merging Algorithm</b> 🧩: Git employs a 3-way merging algorithm
+              to combine the changes. It creates a new "merge commit" that ties
+              together the histories of both branches.
+            </p>
+
+            <p>
+              <b>Commit History</b> 📜: The commit history becomes linear,
+              showing a clear timeline of when changes were integrated from the
+              other branch.
+            </p>
+
+            <p>
+              Git Merge is like adding puzzle pieces together, ensuring all
+              changes are preserved and visible in your branch's history. It's
+              ideal for collaborations and when you want to maintain a clean
+              history.
+            </p>
+
+            <h2>🌟 Git Rebase: The Time Traveler 🕰️</h2>
+
+            <p>
+              Now, let's dive into the intriguing world of Git Rebase, a command
+              that can rewrite history! 🚀
+            </p>
+
+            <div class="code"><p>git rebase &lt;branch-name&gt;</p></div>
+
+            <p>
+              <b>Branch Rebase</b> 🌱: You're on your current branch and want to
+              incorporate changes from another branch, but with a twist - you
+              want to place your changes on top of the other branch.
+            </p>
+
+            <p>
+              <b>Rebase Command</b> 🔄: You use
+              <code>git rebase &lt;branch-name&gt;</code> to initiate the rebase
+              process.
+            </p>
+
+            <p>
+              <b>Rewriting History</b> 🧙‍♂️: Git temporarily stashes your branch's
+              changes, resets your branch to the other branch's point, applies
+              the changes from the other branch, and finally replays your
+              changes on top. This creates a new branch history, making it
+              appear as if your changes were made directly on top of the other
+              branch.
+            </p>
+
+            <p>
+              <b>Commit History</b> 📜: The commit history becomes linear, with
+              your changes seamlessly integrated into the other branch's
+              timeline.
+            </p>
+
+            <p>
+              Git Rebase is like a time machine that lets you rewrite the past
+              (commit history) to make it appear as though your changes were
+              developed directly in sequence with the other branch. It creates a
+              cleaner and more linear history but should be used with caution,
+              especially in shared repositories.
+            </p>
+
+            <h2>🤯 The Grand Decision 🤔</h2>
+
+            <p>
+              <b>Use Git Merge</b>: When you want a clear and chronological
+              history, ideal for collaboration and shared projects.
+            </p>
+
+            <p>
+              <b>Opt for Git Rebase</b>: When you desire a linear and cleaner
+              history, and you're working on your own branch or a private
+              workspace.
+            </p>
+
+            <p>
+              Both commands have their merits, and the choice depends on your
+              workflow and project needs. Git empowers you to pick the right
+              tool for the job! 🛠️👩‍💻👨‍💻
+            </p>
+          </div>
+          <!--& INFO-BUTTON-->
+          <!--^ ^^^^^^^^^^^-->
+          <!--& INFO-BUTTON-->
+          <!--^ ^^^^^^^^^^^-->
+          <button class="btn moreInfoBtn">More About Merge and Rebase</button>
+          <div class="hidden btn--more-info-box">
+            <h1>🚚 Git Fetch: Unearthing Remote Changes 🌍</h1>
+
+            <p>
+              Before we embark on the journey of understanding Git Rebase and
+              its variations, let's first grasp how Git Merge and Git Rebase
+              work when you don't opt for an interactive rebase. We'll also
+              explore when to use each method, making the path clear as day! ☀️
+            </p>
+
+            <h2>🤝 Git Merge: The Confluence of Changes 🌊</h2>
+
+            <p><b>How It Works (Non-Interactive):</b></p>
+
+            <p>
+              When you run <code>git merge &lt;branch-name&gt;</code>, Git
+              incorporates changes from the specified branch into your current
+              branch.
+            </p>
+
+            <p>
+              Git creates a new "merge commit" that ties together the histories
+              of both branches. This commit has two parent commits: one from
+              your current branch and one from the merged branch.
+            </p>
+
+            <p><b>When to Use:</b></p>
+
+            <p>
+              Use Git Merge when you want to preserve a clear history of when
+              and where changes were integrated.
+            </p>
+
+            <p>
+              It's great for collaborative work where multiple contributors are
+              actively developing and you want a straightforward history.
+            </p>
+
+            <p>
+              Choose Merge when you don't need to reorganize or alter your
+              commit history significantly.
+            </p>
+
+            <h2>🔄 Git Rebase: The Time Traveler's Magic ✨</h2>
+
+            <p><b>How It Works (Non-Interactive):</b></p>
+
+            <p>
+              When you run <code>git rebase &lt;branch-name&gt;</code>, Git
+              temporarily stashes your branch's changes, resets your branch to
+              the other branch's point, applies the changes from the other
+              branch, and finally replays your changes on top.
+            </p>
+
+            <p>
+              This creates a new branch history, making it appear as if your
+              changes were made directly on top of the other branch.
+            </p>
+
+            <p><b>When to Use:</b></p>
+
+            <p>
+              Use Git Rebase when you want a cleaner and more linear commit
+              history. It's ideal for your local branches or private workspaces
+              where you want to keep your changes organized and separate from
+              others' work.
+            </p>
+
+            <p>
+              Rebase is excellent for feature branches where you want to
+              maintain a tidy, chronological sequence of commits.
+            </p>
+
+            <h2>🤔 Choosing Between Merge and Rebase 🚀</h2>
+
+            <p>
+              <b>Git Merge:</b> Use when you want to maintain a clear,
+              chronological history, especially in shared repositories with
+              multiple contributors.
+            </p>
+
+            <p>
+              <b>Git Rebase:</b> Use when you prefer a linear and cleaner
+              history, especially for your private branches or feature branches.
+              It helps keep your commits organized.
+            </p>
+
+            <p>
+              <b>Interactive Rebase (-i):</b> Opt for an interactive rebase
+              (<code>git rebase -i</code>) when you want to rewrite, squash, or
+              reorder commits interactively. This is useful for cleaning up your
+              commit history before merging it into a shared branch.
+            </p>
+
+            <p>
+              Remember, the choice between Git Merge and Git Rebase often
+              depends on the project's workflow and your team's preferences.
+              Both methods have their strengths, so choose the one that best
+              suits your needs and the project's goals. Understanding when and
+              how to use each approach is a valuable skill in your Git toolkit!
+              🧰👩‍💻👨‍💻
+            </p>
+          </div>
+          <!--& INFO-BUTTON-->
+          <!--^ ^^^^^^^^^^^-->
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dropdown-more-info.js"></script>
+    <script src="/JS/dynamic-nav.js"></script>
+  </body>
+</html>

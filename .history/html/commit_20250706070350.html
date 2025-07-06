@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>✅Commit</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">
+            ✅Making Commits and Unstaging Safely
+          </h1>
+
+          <p>
+            Below is a detailed Git reference guide that covers staging,
+            unstaging, committing, saving locally, and the differences between
+            <code>reset</code> and <code>restore</code>. Additionally, we'll
+            provide information about which option is safer for unstaging—<code
+              >reset</code
+            >
+            or <code>restore</code>.
+          </p>
+
+          <h2>Step 1: 📁 Staging Files</h2>
+
+          <p>
+            <b>Staging</b> is the process of preparing changes for your next
+            commit.
+          </p>
+
+          <p><b>Stage a Single File:</b></p>
+          <div class="code"><p>git add filename.ext</p></div>
+
+          <p><b>Stage All Changes:</b></p>
+          <div class="code"><p>git add .</p></div>
+
+          <h2>
+            Step 2: 🔁 Unstaging with <code>reset</code> or <code>restore</code>
+          </h2>
+
+          <h2>⚠️Data Safety Consideration!🔍</h2>
+
+          <p>
+            <b>Safer Option for Unstaging:</b> While both <code>reset</code> and
+            <code>restore</code> can be used for unstaging,
+            <code>restore</code> is considered safer as it is designed
+            specifically for unstaging changes without affecting your commit
+            history. If data safety is a primary concern, lean towards using
+            <code>restore</code> for unstaging operations.
+          </p>
+
+          <p><b>Unstaging</b> removes changes from the staging area.</p>
+
+          <p>
+            <b>Unstaging with <code>restore</code> (Safer Option):</b>
+          </p>
+          <div class="code"><p>git restore --staged filename.ext</p></div>
+          <p>
+            <b>Safety Note:</b> <code>restore</code> is a safer option for
+            unstaging, as it focuses on the staging area without altering your
+            commit history.
+          </p>
+
+          <p>
+            <b>Unstaging with <code>reset</code> (⚠️Caution Required):</b>
+          </p>
+          <div class="code"><p>git reset filename.ext</p></div>
+          <p>
+            <b>⚠️Safety Warning:</b> <code>reset</code> can be risky as it can
+            also move your branch pointer, potentially affecting your commit
+            history. Use it carefully.
+          </p>
+
+          <h2>Step 3: 📝 Making Commits</h2>
+
+          <p>
+            <b>Committing</b> saves your staged changes into the Git history.
+          </p>
+
+          <div class="code">
+            <p>
+              git commit -m
+              <em class="grn">"Your descriptive commit message here"</em>
+            </p>
+          </div>
+
+          <h2>Step 4: 💾 Saving Locally (Without Pushing)</h2>
+
+          <p>
+            Your commits are saved locally in Git but not on a remote server.
+          </p>
+
+          <p>
+            <b>To Save Locally (Already Doing It):</b> No extra command needed!
+            Your commits are automatically saved locally.
+          </p>
+
+          <p><b>To list all commits:</b></p>
+          <div class="code">
+            <p>git log</p>
+          </div>
+          <p>or</p>
+          <div class="code">
+            <p>git log --oneline</p>
+          </div>
+
+          <h2>Important Warning! 🚨</h2>
+          <p>
+            Remember, your commits are safe locally, but if you lose your local
+            copy, they will be gone forever! Always back up your work and
+            consider pushing to a remote repository for safekeeping.
+          </p>
+
+          <h2>Optional Step: 🚀 Pushing to a Remote</h2>
+
+          <p>
+            Consider pushing your commits to a remote repository for backup and
+            collaboration with others:
+          </p>
+
+          <div class="code"><p>git push origin branch_name</p></div>
+
+          <p>
+            This comprehensive Git reference guide provides detailed information
+            on various Git actions and emphasizes the safer option,
+            <code>restore</code>, for unstaging changes while preserving your
+            commit history. Git's power is at your fingertips—use it wisely!
+            🚀🤓
+          </p>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+    <script>
+      document.querySelectorAll(".code").forEach((codeBlock) => {
+        // Create copy button
+        const btn = document.createElement("button");
+        btn.className = "copy-btn";
+        btn.textContent = "Copy";
+
+        // Insert button into the code block
+        codeBlock.style.position = "relative";
+        codeBlock.appendChild(btn);
+
+        // Copy logic
+        btn.addEventListener("click", () => {
+          const text = codeBlock.querySelector("p").innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => (btn.textContent = "Copy"), 2000);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

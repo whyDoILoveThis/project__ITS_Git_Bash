@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>🏗️Create New Repo</title>
+  </head>
+  <body>
+    <!--!!!!!-->
+    <!--! MAIN-WRAP -->
+    <div class="main-wrap">
+      <section class="article-wrap">
+        <article class="article">
+          <h1 class="article__heading">
+            🚀Creating a New GitHub Repository with Git Bash
+          </h1>
+          <button class="btn moreInfoBtn">Quick Breakdown</button>
+          <div class="hidden btn--more-info-box">
+            <p>
+              <b>Step 1: Creating a New Repository on GitHub:</b> In the steps,
+              you first created a new directory on your local machine, turned it
+              into a Git repository, and added your project files.
+              <br />
+              <b>Step 2: Linking the Local and Remote Repositories:</b> You
+              linked your local Git repository to the new GitHub repository
+              using the git remote add origin command. This established a
+              connection between your local repository and the remote one on
+              GitHub.
+              <br />
+              <b>Step 3: Pushing to GitHub:</b>
+              Finally, you pushed the contents of your local repository to
+              GitHub using git push. This action essentially uploaded your local
+              project to GitHub, making it available on the remote repository.
+            </p>
+          </div>
+          <!--~ step-->
+          <h2>Step 1:🔧Setting Up Git</h2>
+          <p>
+            Before we start, make sure Git is installed on your system. If not,
+            download and install it from
+            <a href="https://git-scm.com" target="_blank">
+              Git's official website.</a
+            >
+          </p>
+          <!--~ step-->
+          <h2>Step 2:🏗️Creating a New Directory</h2>
+          <p>
+            Open Git Bash, navigate to the directory where you want to create
+            your new project, and execute the following command to create a new
+            directory:
+          </p>
+          <div class="code">
+            <p><em class="orng">mkdir</em> YourProjectName</p>
+          </div>
+          <p>Replace `YourProjectName` with the actual name of your project.</p>
+          <!--~ step-->
+          <h2>Step 3: 🔄 Initializing a Git Repository</h2>
+          <p>
+            Inside your newly created directory, initialize a Git repository
+            using this command:
+          </p>
+          <div class="code">
+            <p><em class="orng">cd</em> YourProjectName git init</p>
+          </div>
+          <!--~ step-->
+          <h2>Step 4: 📝 Adding and Committing Files</h2>
+          <p>
+            Create some files or add existing ones to your project directory.
+            Then, add them to the staging area and commit your changes:
+          </p>
+          <div class="code">
+            <p>
+              git add . git commit -m
+              <em class="grn">"Initial commit"</em>
+            </p>
+          </div>
+          <!--~ step-->
+          <h2>Step 5: 🌐 Creating a GitHub Repository</h2>
+          <p>
+            Go to git <a href="https://github.com">GitHub</a>, log in to your
+            account, and click the '+' icon in the top right corner. Select 'New
+            Repository' and follow the instructions to create a new repository
+            with a name and optional description.
+          </p>
+          <!--~ step-->
+          <h2>Step 6: 🔗 Linking Local and Remote Repositories</h2>
+          <p>
+            Now, it's time to link your local Git repository with the newly
+            created GitHub repository. Copy the repository URL provided by
+            GitHub. In your Git Bash terminal, add the remote repository:
+          </p>
+
+          <div class="code">
+            <p>git remote add origin YourGitHubRepositoryURL</p>
+          </div>
+          <p>Replace `YourGitHubRepositoryURL` with the URL you copied.</p>
+          <!--& INFO-BUTTON-->
+          <!--^ ^^^^^^^^^^^-->
+          <button class="btn moreInfoBtn btn--margin-bottom">
+            HTTPS vs. SSH
+          </button>
+          <div class="hidden btn--more-info-box">
+            <p>
+              <b>
+                Whether you're using HTTPS or SSH, the process is similar.
+                Here's a detailed explanation for both:
+              </b>
+            </p>
+            <h2>Using HTTPS:</h2>
+            <h3>Copy GitHub Repository URL 🌐</h3>
+            <p>
+              First, go to your GitHub repository's page, click the green "Code"
+              button, and make sure you have the HTTPS URL copied. It should
+              look something like this:
+              <b>https://github.com/YourUsername/YourRepo.git.</b>
+            </p>
+            <h3>Linking the Remote Repository 🔗</h3>
+            <p>
+              In your Git Bash terminal, navigate to your project directory (if
+              you're not already there) and run the following command, replacing
+              YourGitHubRepositoryURL with the URL you copied:
+            </p>
+            <div class="code">
+              <p>
+                git remote add origin
+                https://github.com/YourUsername/YourRepo.git
+              </p>
+            </div>
+            <p>
+              This command establishes a connection between your local
+              repository and your GitHub repository, and it names the connection
+              "origin" by convention.
+            </p>
+            <h2>Using SSH:</h2>
+            <h3>Set Up SSH Keys on Your Local Machine 🔐</h3>
+            <p>
+              To use SSH with GitHub, you'll need to set up SSH keys. If you
+              haven't already, follow
+              <a
+                href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+                target="_blank"
+                >GitHub's guide on generating an SSH key</a
+              >.
+            </p>
+            <h3>Copy GitHub SSH Repository URL 🌐</h3>
+            <p>
+              Similar to the HTTPS method, go to your GitHub repository's page,
+              click the green "Code" button, and ensure you have the SSH URL
+              copied. It should look something like this:
+              <b>git@github.com:YourUsername/YourRepo.git.</b>
+            </p>
+            <h3>Linking the Remote Repository 🔗</h3>
+            <p>
+              In your Git Bash terminal, navigate to your project directory (if
+              you're not already there) and run the following command, replacing
+              YourGitHubRepositoryURL with the SSH URL you copied:
+            </p>
+            <div class="code">
+              <p>
+                git remote add origin git@github.com:YourUsername/YourRepo.git
+              </p>
+            </div>
+            <p>
+              This command connects your local repository to your GitHub
+              repository using SSH.
+              <br />
+              <br />
+              Whether you use HTTPS or SSH, this step establishes the link
+              between your local Git repository and your GitHub repository,
+              enabling you to push and pull changes between them. 🌟🔗🚀
+            </p>
+          </div>
+          <!--& INFO-BUTTON-->
+          <!--^ ^^^^^^^^^^^-->
+          <button class="btn moreInfoBtn">Which to Choose?</button>
+          <div class="hidden btn--more-info-box">
+            <h2>🌐 HTTPS vs. SSH: Which to Choose?</h2>
+            <p>
+              Each method has its own advantages and considerations.
+              <br />
+              <br />
+              <b>
+                Let's break down the differences and help you choose which one
+                to use:
+              </b>
+            </p>
+            <h3>HTTPS (Hypertext Transfer Protocol Secure):</h3>
+            <h3>Pros:</h3>
+            <p>
+              <b>1. Simplicity:</b> Setting up HTTPS is generally easier and
+              requires fewer steps for most users.
+              <br />
+              <b>2. Universal Access:</b>It works through most firewalls and
+              proxies, making it more accessible in corporate or restricted
+              network environments.
+              <br />
+              <b>3. No SSH Key Management:</b> You don't need to manage SSH
+              keys, making it user-friendly.
+            </p>
+            <h3>Cons:</h3>
+            <p>
+              <b>1. Authentication with Password:</b>
+              HTTPS typically requires you to enter your GitHub username and
+              password each time you interact with the remote repository. This
+              can be less secure than SSH keys and less convenient.
+            </p>
+            <h2>SSH (Secure Shell):</h2>
+            <h3>Pros:</h3>
+            <p>
+              <b>1. Security:</b>
+              SSH is considered more secure because it uses a pair of
+              cryptographic keys (public and private) for authentication. Your
+              private key is stored securely on your local machine.
+              <br />
+              <b>2. Convenience:</b> Once set up, SSH doesn't require you to
+              enter a username and password each time you interact with the
+              remote repository.
+              <br />
+              <b>3. GitHub Actions:</b> If you plan to use GitHub Actions or
+              automated scripts, SSH keys are often a better choice for secure
+              authentication.
+            </p>
+            <h3>Cons:</h3>
+            <p>
+              <b> 1. Initial Setup: </b> Configuring SSH keys can be more
+              involved, especially for beginners.
+              <br />
+              <b>2. SSH Key Management:</b> You need to manage your SSH keys,
+              including generating, securing, and adding them to your GitHub
+              account.
+            </p>
+            <h2>How to Choose:</h2>
+            <p>
+              <b>1. If You're New to Git:</b> If you're new to Git and just want
+              to quickly start using version control with GitHub, HTTPS is a
+              simpler choice.
+              <br />
+              <b>2. If Security Is a Priority:</b> If security is a top concern,
+              or if you plan to use GitHub for sensitive projects, SSH is the
+              preferred option due to its enhanced security.
+              <br />
+              <b> 3. GitHub Actions or Automation: </b> If you intend to set up
+              automation, continuous integration, or use GitHub Actions, SSH is
+              often the better choice because it doesn't require manual
+              authentication.
+              <br />
+              <b>4. Your Comfort Level:</b> Ultimately, choose the method you're
+              more comfortable with. You can always switch between HTTPS and SSH
+              later if needed.
+              <br />
+              <br />
+              <b>
+                In summary, HTTPS is easier to set up and may be the right
+                choice for beginners, while SSH offers higher security and
+                convenience for experienced users or those with specific
+                automation needs. Consider your priorities and comfort level
+                when making your decision. 🌟🔐🚀
+              </b>
+            </p>
+          </div>
+
+          <!--~ step -->
+          <h2>Step 7: 🚀 Pushing to GitHub</h2>
+          <p>Finally, push your local repository to GitHub:</p>
+          <div class="code">
+            <p>git push -u origin main</p>
+          </div>
+          <p>
+            <b>` git push `:</b>
+            This tells Git to send your local changes to a remote repository.
+            <br />
+            <br />
+            <b>` -u origin main `:</b> Let's break this down:
+            <br />
+            <br />
+            <b>` -u `:</b> This flag is short for --set-upstream, which tells
+            Git to set up a tracking relationship between your local branch
+            (main) and the remote branch on GitHub.
+            <br />
+            <br />
+            <b>` origin `:</b> This is the name of the remote repository you
+            linked in Step 6.
+            <br />
+            <br />
+            <b>` main `:</b> This is the name of the branch you want to push to
+            on GitHub.
+          </p>
+          <p>
+            That's it! Your local project is now a GitHub repository 🎉. You've
+            created, initialized, and pushed your project with Git Bash. Bravo!
+            👏
+          </p>
+        </article>
+      </section>
+    </div>
+    <!--! MAIN-WRAP -->
+    <!--! !!!!!!! -->
+    <script src="/JS/dynamic-nav.js"></script>
+    <script src="/JS/dropdown-more-info.js"></script>
+    <script>
+      document.querySelectorAll(".code").forEach((codeBlock) => {
+        // Create copy button
+        const btn = document.createElement("button");
+        btn.className = "copy-btn";
+        btn.textContent = "Copy";
+
+        // Insert button into the code block
+        codeBlock.style.position = "relative";
+        codeBlock.appendChild(btn);
+
+        // Copy logic
+        btn.addEventListener("click", () => {
+          const text = codeBlock.querySelector("p").innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => (btn.textContent = "Copy"), 2000);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
